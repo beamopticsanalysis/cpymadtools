@@ -1,0 +1,223 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "cpymadtools/_version.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/docs",
+  "/tests",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["cpymadtools"]
+
+[project]
+name = "cpymadtools"
+readme = "README.md"
+description = "Lightweigth pythonic wrapper around cpymad, extracted from pyhdtoolkit"
+authors = [
+    {name = "Felix Soubelet", email = "felix.soubelet@cern.ch"},
+]
+license = "Apache-2.0"
+dynamic = ["version"]
+requires-python = ">=3.8"
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Utilities",
+]
+
+dependencies = [
+  "numpy >= 1.21",
+  "pandas >= 1.4",
+  "scipy >= 1.6",
+  "tfs-pandas >= 3.2",
+  "cpymad >= 1.9",
+  "optics-functions >= 0.1",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest >= 6.0",
+  "pytest-cov >= 3.0",
+  "pytest-xdist >= 2.5",
+  "flaky >= 3.5",
+  "pytest-randomly >= 3.3",
+  "coverage[toml] >= 5.2",
+  "pytest-mpl >= 0.12",
+]
+dev = [
+  "black >= 22.1",
+  "isort >= 5.10",
+  "pylint >= 2.4",
+]
+docs = [
+  "Sphinx >= 4.4",
+  "sphinx-rtd-theme >= 1.0",
+  "sphinx-issues >= 3.0",
+  "sphinx_copybutton < 1.0",
+  "sphinxcontrib-bibtex >= 2.4",
+  "sphinx-panels < 1.0",
+  "sphinx-gallery < 1.0",
+  "sphinx-prompt >= 1.5",
+]
+
+[project.urls]
+homepage = "https://github.com/fsoubelet/cpymadtools"
+repository = "https://github.com/fsoubelet/cpymadtools"
+documentation = "https://fsoubelet.github.io/cpymadtools"
+changelog = "https://fsoubelet.github.io/cpymadtools/release.html"
+
+# ----- Testing Configuration ----- #
+
+[tool.pytest.ini_options]
+addopts = "--mpl --no-flaky-report --cov-report=xml --cov-report term-missing --cov-config=pyproject.toml --cov=cpymadtools"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["cpymadtools/"]
+
+[tool.coverage.report]
+ignore_errors = true
+omit = [
+  "cpymadtools/setup.py",
+]
+precision = 2
+
+# ----- Dev Tools Configuration ----- #
+
+[tool.isort]
+atomic = true
+ensure_newline_before_comments = true
+filter_files = true
+force_grid_wrap = 0
+force_single_line = false
+include_trailing_comma = true
+known_first_party = "pyhdtoolkit"
+known_third_party = "pytest"
+line_length = 110
+lines_between_types = 1
+multi_line_output = 3
+use_parentheses = true
+profile = "black"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tests/.*/setup.py
+)/
+'''
+
+[tool.mypy]
+pretty = true
+strict_optional = false
+show_error_codes = true
+warn_redundant_casts = true
+ignore_missing_imports = true
+follow_imports = "skip"
+
+[tool.pylint]
+[tool.pylint.master]
+jobs="1"    # Auto-detect the number of processors
+ignore-patterns='''
+    \.eggs
+    |\.git
+    |build
+    |dist
+    |conf.py
+'''
+persistent="no"
+load-plugins=""
+limit-inference-results="100"
+suggestion-mode="yes"
+unsafe-load-any-extension="no"
+extension-pkg-whitelist=""
+exit-zero="no"
+from-stdin="no"
+
+[tool.pylint.messages_control]
+disable = [
+    "attribute-defined-outside-init",
+    "bad-continuation",
+    "expression-not-assigned",
+    "invalid-name",
+    "import-error",
+    "logging-format-interpolation",
+    "protected-access",
+    "too-few-public-methods",
+    "too-many-instance-attributes",
+    "format",  # handled by black
+]
+
+[tool.pylint.reports]
+output-format="text"
+msg-template="{path}:{line}:{column}: Pylint: {msg}. [{msg_id}: {symbol}]"
+
+[tool.pylint.basic]
+argument-naming-style="snake_case"
+attr-naming-style="snake_case"
+class-attribute-naming-style="snake_case"
+class-naming-style="PascalCase"
+const-naming-style="UPPER_CASE"
+function-naming-style="snake_case"
+inlinevar-naming-style="snake_case"
+method-naming-style="snake_case"
+module-naming-style="snake_case"
+variable-naming-style="snake_case"
+
+[tool.pylint.design]
+max-args="10"
+max-attributes="10"
+max-locals="15"
+max-public-methods="20"
+max-returns="5"
+
+[tool.pylint.'SIMILARITIES']
+ignore-comments=['yes']
+ignore-docstrings=['yes']
+ignore-imports=['no']
+min-similarity-lines=4
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+fail-under = 95
+exclude = ["tests"]
+ignore-regex = []
+verbose = 2
+quiet = false
+whitelist-regex = []
+color = true
