@@ -61,6 +61,7 @@ LHC_IR_QUADS_PATTERNS: Dict[int, List[str]] = {
     9: ["^MQM.9{side}{ip:d}.B{beam:d}", "^MQMC.9{side}{ip:d}.B{beam:d}"],  # Q9 3.4m then 2.4m LHC & HL-LHC
     10: ["^MQML.10{side}{ip:d}.B{beam:d}"],  # Q10 4.8m LHC & HL-LHC
 }
+
 # ----- Setup Utlites ----- #
 
 
@@ -597,6 +598,9 @@ def switch_magnetic_errors(madx: Madx, **kwargs) -> None:
                 madx.globals[f"ON_{name}"] = error_value
 
 
+# ----- Errors Assignment ----- #
+
+
 def misalign_lhc_triplets(
     madx: Madx, ip: int, sides: Sequence[str] = ("r", "l"), table: str = "triplet_errors", **kwargs
 ) -> None:
@@ -1130,126 +1134,7 @@ def make_sixtrack_output(madx: Madx, energy: int) -> None:
     madx.sixtrack(cavall=True, radius=0.017)  # this value is only ok for HL(LHC) magnet radius
 
 
-# ----- Miscellaneous Utilities ----- #
-
-
-def reset_lhc_bump_flags(madx: Madx) -> None:
-    """
-    .. versionadded:: 0.15.0
-
-    Resets all LHC IP bump flags to 0.
-
-    Args:
-        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
-
-    Example:
-        .. code-block:: python
-
-            >>> reset_lhc_bump_flags(madx)
-    """
-    logger.debug("Resetting all LHC IP bump flags")
-    ALL_BUMPS = (
-        LHC_ANGLE_FLAGS
-        + LHC_CROSSING_ANGLE_FLAGS
-        + LHC_EXPERIMENT_STATE_FLAGS
-        + LHC_IP2_SPECIAL_FLAG
-        + LHC_IP_OFFSET_FLAGS
-        + LHC_PARALLEL_SEPARATION_FLAGS
-    )
-    with madx.batch():
-        madx.globals.update({bump: 0 for bump in ALL_BUMPS})
-
-
-def get_lhc_bpms_list(madx: Madx) -> List[str]:
-    """
-    .. versionadded:: 0.16.0
-
-    Returns the list of monitoring BPMs for the current LHC sequence in use.
-    The BPMs are queried through a regex in the result of a ``TWISS`` command.
-
-    .. note::
-        As this function calls the ``TWISS`` command and requires that ``TWISS`` can
-        succeed on your sequence.
-
-    Args:
-        madx (cpymad.madx.Madx): an instantiated cpymad.madx.Madx object.
-
-    Returns:
-        The `list` of BPM names.
-
-    Example:
-        .. code-block:: python
-
-            >>> observation_bpms = get_lhc_bpms_list(madx)
-    """
-    twiss_df = twiss.get_twiss_tfs(madx).reset_index()
-    bpms_df = twiss_df[twiss_df.NAME.str.contains("^bpm.*B[12]$", case=False, regex=True)]
-    return bpms_df.NAME.tolist()
-
-
-def get_lhc_tune_and_chroma_knobs(
-    accelerator: str, beam: int = 1, telescopic_squeeze: bool = True, run3: bool = False
-) -> Tuple[str, str, str, str]:
-    """
-    .. versionadded:: 0.16.0
-
-    Gets names of knobs needed to match tunes and chromaticities as a tuple of strings,
-    for the LHC or HLLHC machines. Initial implementation credits go to
-    :user:`Joschua Dilly <joschd>`.
-
-    Args:
-        accelerator (str): Accelerator either 'LHC' (dQ[xy], dQp[xy] knobs) or 'HLLHC'
-            (kqt[fd], ks[fd] knobs).
-        beam (int): Beam to use, for the knob names. Defaults to 1.
-        telescopic_squeeze (bool): if set to `True`, returns the knobs for Telescopic
-            Squeeze configuration. Defaults to `True` to reflect run III scenarios.
-        run3 (bool): if set to `True`, returns the Run 3 `*_op` knobs. Defaults to `False`.
-
-    Returns:
-        A `tuple` of strings with knobs for ``(qx, qy, dqx, dqy)``.
-
-    Examples:
-        .. code-block:: python
-
-            >>> get_lhc_tune_and_chroma_knobs("LHC", beam=1, telescopic_squeeze=False)
-            ('dQx.b1', 'dQy.b1', 'dQpx.b1', 'dQpy.b1')
-
-        .. code-block:: python
-
-            >>> get_lhc_tune_and_chroma_knobs("LHC", beam=2, run3=True)
-            ('dQx.b2_op', 'dQx.b2_op', 'dQpx.b2_op', 'dQpx.b2_op')
-
-        .. code-block:: python
-
-            >>> get_lhc_tune_and_chroma_knobs("HLLHC", beam=2)
-            ('kqtf.b2_sq', 'kqtd.b2_sq', 'ksf.b2_sq', 'ksd.b2_sq')
-    """
-    beam = 2 if beam == 4 else beam
-    if run3:
-        suffix = "_op"
-    elif telescopic_squeeze:
-        suffix = "_sq"
-    else:
-        suffix = ""
-
-    if accelerator.upper() not in ("LHC", "HLLHC"):
-        logger.error("Invalid accelerator name, only 'LHC' and 'HLLHC' implemented")
-        raise NotImplementedError(f"Accelerator '{accelerator}' not implemented.")
-
-    return {
-        "LHC": (
-            f"dQx.b{beam}{suffix}",
-            f"dQy.b{beam}{suffix}",
-            f"dQpx.b{beam}{suffix}",
-            f"dQpy.b{beam}{suffix}",
-        ),
-        "HLLHC": (
-            f"kqtf.b{beam}{suffix}",
-            f"kqtd.b{beam}{suffix}",
-            f"ksf.b{beam}{suffix}",
-            f"ksd.b{beam}{suffix}",
-        ),
-    }[accelerator.upper()]
+# ----- Querying Utilities ----- #
 
 
 def get_magnets_powering(
@@ -1306,67 +1191,6 @@ def get_magnets_powering(
     NEW_COLNAMES = list(set(NEW_COLNAMES + kwargs.pop("columns", [])))  # in case user gives explicit columns
     _list_field_currents(madx, brho=brho)
     return twiss.get_pattern_twiss(madx, columns=NEW_COLNAMES, patterns=patterns, **kwargs)
-
-
-def get_lhc_bpms_twiss_and_rdts(madx: Madx) -> tfs.TfsDataFrame:
-    """
-    .. versionadded:: 0.19.0
-
-    Runs a ``TWISS`` on the currently active sequence for all ``LHC`` BPMs. The coupling RDTs
-    are also computed through a CMatrix approach via  `optics_functions.coupling.coupling_via_cmatrix`.
-
-    Args:
-        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
-
-    Returns:
-        A `~tfs.frame.TfsDataFrame` of the ``TWISS`` table with basic default columns, as well as one
-        new column for each of the coupling RDTs. The coupling RDTs are returned as complex numbers.
-
-    Example:
-        .. code-block:: python
-
-            >>> twiss_with_rdts = get_lhc_bpms_twiss_and_rdts(madx)
-    """
-    twiss_tfs = twiss.get_pattern_twiss(  # need chromatic flag as we're dealing with coupling
-        madx, patterns=["^BPM.*B[12]$"], columns=MONITOR_TWISS_COLUMNS, chrom=True
-    )
-    twiss_tfs.columns = twiss_tfs.columns.str.upper()  # optics_functions needs capitalized names
-    twiss_tfs.NAME = twiss_tfs.NAME.str.upper()
-    twiss_tfs[["F1001", "F1010"]] = coupling_via_cmatrix(twiss_tfs, output=["rdts"])
-    return twiss_tfs
-
-
-def get_sizes_at_ip(madx: Madx, ip: int, geom_emit_x: float = None, geom_emit_y: float = None) -> Tuple[float, float]:
-    """
-    .. versionadded:: 1.0.0
-
-    Get the Lebedev beam sizes (horizontal and vertical) at the provided LHC *ip*.
-
-    Args:
-        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
-        ip (int): the IP to get the sizes at.
-        geom_emit_x (float): the horizontal geometrical emittance to use for the
-            calculation. If not provided, will look for the values of the
-            ``geometric_emit_x`` variable in ``MAD-X``.
-        geom_emit_y (float): the vertical geometrical emittance to use for the
-            calculation. If not provided, will look for the values of the
-            ``geometric_emit_y`` variable in ``MAD-X``.
-
-    Returns:
-        A tuple of the horizontal and vertical beam sizes at the provided *IP*.
-
-    Example:
-        .. code-block:: python
-
-            >>> ip5_x, ip5_y = get_size_at_ip(madx, ip=5)
-    """
-    logger.debug(f"Getting horizotnal and vertical sizes at IP{ip:d} through Ripken parameters")
-    geom_emit_x = geom_emit_x or madx.globals["geometric_emit_x"]
-    geom_emit_y = geom_emit_y or madx.globals["geometric_emit_y"]
-
-    twiss_tfs = twiss.get_twiss_tfs(madx, chrom=True, ripken=True)
-    twiss_tfs = _add_beam_size_to_df(twiss_tfs, geom_emit_x, geom_emit_y)
-    return twiss_tfs.loc[f"IP{ip:d}"].SIZE_X, twiss_tfs.loc[f"IP{ip:d}"].SIZE_Y
 
 
 def query_arc_correctors_powering(madx: Madx) -> Dict[str, float]:
@@ -1471,6 +1295,189 @@ def query_triplet_correctors_powering(madx: Madx) -> Dict[str, float]:
     k_mctx_max = 0.01 * 120 / 0.017 ** 5 / madx.globals.brho  # 0.010 T @ 17 mm
     result.update({knob: 100 * _knob_value(madx, knob) / k_mctx_max for knob in LHC_KCTX_KNOBS})
     return result
+
+
+# ----- Miscellaneous Utilities ----- #
+
+
+def reset_lhc_bump_flags(madx: Madx) -> None:
+    """
+    .. versionadded:: 0.15.0
+
+    Resets all LHC IP bump flags to 0.
+
+    Args:
+        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
+
+    Example:
+        .. code-block:: python
+
+            >>> reset_lhc_bump_flags(madx)
+    """
+    logger.debug("Resetting all LHC IP bump flags")
+    ALL_BUMPS = (
+        LHC_ANGLE_FLAGS
+        + LHC_CROSSING_ANGLE_FLAGS
+        + LHC_EXPERIMENT_STATE_FLAGS
+        + LHC_IP2_SPECIAL_FLAG
+        + LHC_IP_OFFSET_FLAGS
+        + LHC_PARALLEL_SEPARATION_FLAGS
+    )
+    with madx.batch():
+        madx.globals.update({bump: 0 for bump in ALL_BUMPS})
+
+
+def get_lhc_tune_and_chroma_knobs(
+    accelerator: str, beam: int = 1, telescopic_squeeze: bool = True, run3: bool = False
+) -> Tuple[str, str, str, str]:
+    """
+    .. versionadded:: 0.16.0
+
+    Gets names of knobs needed to match tunes and chromaticities as a tuple of strings,
+    for the LHC or HLLHC machines. Initial implementation credits go to
+    :user:`Joschua Dilly <joschd>`.
+
+    Args:
+        accelerator (str): Accelerator either 'LHC' (dQ[xy], dQp[xy] knobs) or 'HLLHC'
+            (kqt[fd], ks[fd] knobs).
+        beam (int): Beam to use, for the knob names. Defaults to 1.
+        telescopic_squeeze (bool): if set to `True`, returns the knobs for Telescopic
+            Squeeze configuration. Defaults to `True` to reflect run III scenarios.
+        run3 (bool): if set to `True`, returns the Run 3 `*_op` knobs. Defaults to `False`.
+
+    Returns:
+        A `tuple` of strings with knobs for ``(qx, qy, dqx, dqy)``.
+
+    Examples:
+        .. code-block:: python
+
+            >>> get_lhc_tune_and_chroma_knobs("LHC", beam=1, telescopic_squeeze=False)
+            ('dQx.b1', 'dQy.b1', 'dQpx.b1', 'dQpy.b1')
+
+        .. code-block:: python
+
+            >>> get_lhc_tune_and_chroma_knobs("LHC", beam=2, run3=True)
+            ('dQx.b2_op', 'dQx.b2_op', 'dQpx.b2_op', 'dQpx.b2_op')
+
+        .. code-block:: python
+
+            >>> get_lhc_tune_and_chroma_knobs("HLLHC", beam=2)
+            ('kqtf.b2_sq', 'kqtd.b2_sq', 'ksf.b2_sq', 'ksd.b2_sq')
+    """
+    beam = 2 if beam == 4 else beam
+    if run3:
+        suffix = "_op"
+    elif telescopic_squeeze:
+        suffix = "_sq"
+    else:
+        suffix = ""
+
+    if accelerator.upper() not in ("LHC", "HLLHC"):
+        logger.error("Invalid accelerator name, only 'LHC' and 'HLLHC' implemented")
+        raise NotImplementedError(f"Accelerator '{accelerator}' not implemented.")
+
+    return {
+        "LHC": (
+            f"dQx.b{beam}{suffix}",
+            f"dQy.b{beam}{suffix}",
+            f"dQpx.b{beam}{suffix}",
+            f"dQpy.b{beam}{suffix}",
+        ),
+        "HLLHC": (
+            f"kqtf.b{beam}{suffix}",
+            f"kqtd.b{beam}{suffix}",
+            f"ksf.b{beam}{suffix}",
+            f"ksd.b{beam}{suffix}",
+        ),
+    }[accelerator.upper()]
+
+
+def get_lhc_bpms_list(madx: Madx) -> List[str]:
+    """
+    .. versionadded:: 0.16.0
+
+    Returns the list of monitoring BPMs for the current LHC sequence in use.
+    The BPMs are queried through a regex in the result of a ``TWISS`` command.
+
+    .. note::
+        As this function calls the ``TWISS`` command and requires that ``TWISS`` can
+        succeed on your sequence.
+
+    Args:
+        madx (cpymad.madx.Madx): an instantiated cpymad.madx.Madx object.
+
+    Returns:
+        The `list` of BPM names.
+
+    Example:
+        .. code-block:: python
+
+            >>> observation_bpms = get_lhc_bpms_list(madx)
+    """
+    twiss_df = twiss.get_twiss_tfs(madx).reset_index()
+    bpms_df = twiss_df[twiss_df.NAME.str.contains("^bpm.*B[12]$", case=False, regex=True)]
+    return bpms_df.NAME.tolist()
+
+
+def get_lhc_bpms_twiss_and_rdts(madx: Madx) -> tfs.TfsDataFrame:
+    """
+    .. versionadded:: 0.19.0
+
+    Runs a ``TWISS`` on the currently active sequence for all ``LHC`` BPMs. The coupling RDTs
+    are also computed through a CMatrix approach via  `optics_functions.coupling.coupling_via_cmatrix`.
+
+    Args:
+        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
+
+    Returns:
+        A `~tfs.frame.TfsDataFrame` of the ``TWISS`` table with basic default columns, as well as one
+        new column for each of the coupling RDTs. The coupling RDTs are returned as complex numbers.
+
+    Example:
+        .. code-block:: python
+
+            >>> twiss_with_rdts = get_lhc_bpms_twiss_and_rdts(madx)
+    """
+    twiss_tfs = twiss.get_pattern_twiss(  # need chromatic flag as we're dealing with coupling
+        madx, patterns=["^BPM.*B[12]$"], columns=MONITOR_TWISS_COLUMNS, chrom=True
+    )
+    twiss_tfs.columns = twiss_tfs.columns.str.upper()  # optics_functions needs capitalized names
+    twiss_tfs.NAME = twiss_tfs.NAME.str.upper()
+    twiss_tfs[["F1001", "F1010"]] = coupling_via_cmatrix(twiss_tfs, output=["rdts"])
+    return twiss_tfs
+
+
+def get_sizes_at_ip(madx: Madx, ip: int, geom_emit_x: float = None, geom_emit_y: float = None) -> Tuple[float, float]:
+    """
+    .. versionadded:: 1.0.0
+
+    Get the Lebedev beam sizes (horizontal and vertical) at the provided LHC *ip*.
+
+    Args:
+        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
+        ip (int): the IP to get the sizes at.
+        geom_emit_x (float): the horizontal geometrical emittance to use for the
+            calculation. If not provided, will look for the values of the
+            ``geometric_emit_x`` variable in ``MAD-X``.
+        geom_emit_y (float): the vertical geometrical emittance to use for the
+            calculation. If not provided, will look for the values of the
+            ``geometric_emit_y`` variable in ``MAD-X``.
+
+    Returns:
+        A tuple of the horizontal and vertical beam sizes at the provided *IP*.
+
+    Example:
+        .. code-block:: python
+
+            >>> ip5_x, ip5_y = get_size_at_ip(madx, ip=5)
+    """
+    logger.debug(f"Getting horizotnal and vertical sizes at IP{ip:d} through Ripken parameters")
+    geom_emit_x = geom_emit_x or madx.globals["geometric_emit_x"]
+    geom_emit_y = geom_emit_y or madx.globals["geometric_emit_y"]
+
+    twiss_tfs = twiss.get_twiss_tfs(madx, chrom=True, ripken=True)
+    twiss_tfs = _add_beam_size_to_df(twiss_tfs, geom_emit_x, geom_emit_y)
+    return twiss_tfs.loc[f"IP{ip:d}"].SIZE_X, twiss_tfs.loc[f"IP{ip:d}"].SIZE_Y
 
 
 def get_ips_twiss(madx: Madx, columns: Sequence[str] = DEFAULT_TWISS_COLUMNS, **kwargs) -> tfs.TfsDataFrame:
