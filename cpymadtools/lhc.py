@@ -1065,7 +1065,7 @@ def do_kmodulation(
     for powering in k_powerings:
         logger.debug(f"Modulation of '{element}' - Setting '{powering_variable}' to {powering}")
         madx.globals[powering_variable] = powering
-        df = twiss.get_ir_twiss(madx, ir=ir, centre=True, columns=["k1l", "l"])
+        df = get_ir_twiss(madx, ir=ir, centre=True, columns=["k1l", "l"])
         results.loc[powering].K = df.loc[element.lower()].k1l / df.loc[element.lower()].l  # Store K
         results.loc[powering].TUNEX = madx.table.summ.q1[0]  # Store Qx
         results.loc[powering].TUNEY = madx.table.summ.q2[0]  # Store Qy
@@ -1913,7 +1913,7 @@ def _lebedev_beam_size(
                     twiss_tfs.beta12, twiss_tfs.beta22, geom_emit_x, geom_emit_y
                 )
     """
-    logger.trace("Computing beam size according to Lebedev formula: sqrt(epsx * b1_^2 + epsy * b2_^2)")
+    logger.debug("Computing beam size according to Lebedev formula: sqrt(epsx * b1_^2 + epsy * b2_^2)")
     return np.sqrt(geom_emit_x * beta1_ + geom_emit_y * beta2_)
 
 
