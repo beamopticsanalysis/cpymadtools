@@ -60,7 +60,6 @@ test = [
   "flaky >= 3.5",
   "pytest-randomly >= 3.3",
   "coverage[toml] >= 5.2",
-  "pytest-mpl >= 0.12",
 ]
 dev = [
   "black >= 22.1",
@@ -88,7 +87,7 @@ changelog = "https://fsoubelet.github.io/cpymadtools/release.html"
 # ----- Testing Configuration ----- #
 
 [tool.pytest.ini_options]
-addopts = "--mpl --no-flaky-report --cov-report=xml --cov-report term-missing --cov-config=pyproject.toml --cov=cpymadtools"
+addopts = "--cov-report=xml --cov-report term-missing --cov-config=pyproject.toml --cov=cpymadtools"
 testpaths = ["tests"]
 
 [tool.coverage.run]
