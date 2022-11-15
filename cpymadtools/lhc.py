@@ -18,6 +18,7 @@ from optics_functions.coupling import coupling_via_cmatrix
 
 from cpymadtools import twiss
 from cpymadtools.constants import (
+    DEFAULT_TWISS_COLUMNS,
     LHC_ANGLE_FLAGS,
     LHC_CROSSING_ANGLE_FLAGS,
     LHC_EXPERIMENT_STATE_FLAGS,
@@ -1470,6 +1471,68 @@ def query_triplet_correctors_powering(madx: Madx) -> Dict[str, float]:
     k_mctx_max = 0.01 * 120 / 0.017 ** 5 / madx.globals.brho  # 0.010 T @ 17 mm
     result.update({knob: 100 * _knob_value(madx, knob) / k_mctx_max for knob in LHC_KCTX_KNOBS})
     return result
+
+
+def get_ips_twiss(madx: Madx, columns: Sequence[str] = DEFAULT_TWISS_COLUMNS, **kwargs) -> tfs.TfsDataFrame:
+    """
+    .. versionadded:: 0.9.0
+
+    Quickly get the ``TWISS`` table for certain variables at IP locations only. The ``SUMM`` table will be
+    included as the `~tfs.frame.TfsDataFrame`'s header dictionary.
+
+    Args:
+        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
+        columns (Sequence[str]): the variables to be returned, as columns in the DataFrame.
+        **kwargs: Any keyword argument that can be given to the ``MAD-X`` ``TWISS`` command, such as ``chrom``,
+            ``ripken``, ``centre``; or starting coordinates with ``betx``, ``bety`` etc.
+
+    Returns:
+        A `~tfs.frame.TfsDataFrame` of the ``TWISS`` table's sub-selection.
+
+    Example:
+        .. code-block:: python
+
+            >>> ips_df = get_ips_twiss(madx, chrom=True, ripken=True)
+    """
+    logger.debug("Getting Twiss at IPs")
+    return twiss.get_pattern_twiss(madx=madx, columns=columns, patterns=["IP"], **kwargs)
+
+
+def get_ir_twiss(madx: Madx, ir: int, columns: Sequence[str] = DEFAULT_TWISS_COLUMNS, **kwargs) -> tfs.TfsDataFrame:
+    """
+    .. versionadded:: 0.9.0
+
+    Quickly get the ``TWISS`` table for certain variables for one Interaction Region, meaning at the IP and
+    Q1 to Q3 both left and right of the IP. The ``SUMM`` table will be included as the `~tfs.frame.TfsDataFrame`'s
+    header dictionary.
+
+    Args:
+        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.
+        ir (int): which interaction region to get the TWISS for.
+        columns (Sequence[str]): the variables to be returned, as columns in the DataFrame.
+        **kwargs: Any keyword argument that can be given to the ``MAD-X`` ``TWISS`` command, such as ``chrom``,
+            ``ripken``, ``centre``; or starting coordinates with ``betx``, ``bety`` etc.
+
+    Returns:
+        A `~tfs.frame.TfsDataFrame` of the ``TWISS`` table's sub-selection.
+
+    Example:
+        .. code-block:: python
+
+            >>> ir_df = get_ir_twiss(madx, chrom=True, ripken=True)
+    """
+    logger.debug(f"Getting Twiss for IR{ir:d}")
+    return twiss.get_pattern_twiss(
+        madx=madx,
+        columns=columns,
+        patterns=[
+            f"IP{ir:d}",
+            f"MQXA.[12345][RL]{ir:d}",  # Q1 and Q3 LHC
+            f"MQXB.[AB][12345][RL]{ir:d}",  # Q2A and Q2B LHC
+            f"MQXF[AB].[AB][12345][RL]{ir:d}",  # Q1 to Q3 A and B HL-LHC
+        ],
+        **kwargs,
+    )
 
 
 # ----- Helpers ----- #
