@@ -47,8 +47,9 @@ logger = getLogger(__name__)
 
 # ----- Constants ----- #
 
+# These need to be formatted
 # After number 10 are either MQ or MQT quadrupole elements, which officially belong to the arcs
-IR_QUADS_PATTERNS: Dict[int, List[str]] = {
+LHC_IR_QUADS_PATTERNS: Dict[int, List[str]] = {
     1: ["^MQXA.1{side}{ip:d}", "^MQXFA.[AB]1{side}{ip:d}"],  # Q1 LHC, Q1A & Q1B HL-LHC
     2: ["^MQXB.[AB]2{side}{ip:d}", "^MQXB.[AB]2{side}{ip:d}"],  # Q2A & Q2B LHC, Q2A & Q2B HL-LHC
     3: ["^MQXA.3{side}{ip:d}", "^MQXFA.[AB]3{side}{ip:d}"],  # Q3 LHC, Q3A & Q3B HL-LHC
@@ -60,7 +61,6 @@ IR_QUADS_PATTERNS: Dict[int, List[str]] = {
     9: ["^MQM.9{side}{ip:d}.B{beam:d}", "^MQMC.9{side}{ip:d}.B{beam:d}"],  # Q9 3.4m then 2.4m LHC & HL-LHC
     10: ["^MQML.10{side}{ip:d}.B{beam:d}"],  # Q10 4.8m LHC & HL-LHC
 }
-
 # ----- Setup Utlites ----- #
 
 
@@ -732,7 +732,7 @@ def misalign_lhc_ir_quadrupoles(
         logger.debug(f"Applying errors for IR{ip}")
         for side in sides:
             for quad_number in quadrupoles:
-                for quad_pattern in IR_QUADS_PATTERNS[quad_number]:
+                for quad_pattern in LHC_IR_QUADS_PATTERNS[quad_number]:
                     # Triplets are single aperture and don't need beam information, others do
                     if quad_number <= 3:
                         madx.select(flag="error", pattern=quad_pattern.format(side=side, ip=ip))
