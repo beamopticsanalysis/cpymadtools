@@ -66,6 +66,7 @@ dev = [
   "black >= 22.1",
   "isort >= 5.10",
   "pylint >= 2.4",
+  "pyhdtoolkit >= 1.0",
 ]
 docs = [
   "Sphinx >= 4.4",
