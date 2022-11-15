@@ -855,7 +855,7 @@ def misalign_lhc_triplets(
 
     Apply misalignment errors to IR triplet quadrupoles on a given side of a given IP. In case of a
     sliced lattice, this will misalign all slices of each magnet together. This is a convenience wrapper
-    around the `~.errors.misalign_lhc_ir_quadrupoles` function, see that function's docstring for more
+    around the `~.misalign_lhc_ir_quadrupoles` function, see that function's docstring for more
     information.
 
     Args:
