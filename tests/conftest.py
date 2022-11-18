@@ -6,16 +6,16 @@ from cpymad.madx import Madx
 
 from cpymadtools import lhc
 from cpymadtools.matching import match_tunes_and_chromaticities
-from pyhdtoolkit.cpymadtools.generators import LatticeGenerator
 
-BASE_LATTICE = LatticeGenerator.generate_base_cas_lattice()
 CURRENT_DIR = pathlib.Path(__file__).parent
 INPUTS_DIR = CURRENT_DIR / "inputs"
+BASE_LATTICE = (INPUTS_DIR / "madx" / "base_lattice.madx").read_text()
 LHC_SEQUENCE = INPUTS_DIR / "madx" / "lhc_as-built.seq"
 LHC_OPTICS = INPUTS_DIR / "madx" / "opticsfile.22"
 LHC_INJ_OPTICS = INPUTS_DIR / "madx" / "opticsfile.1"
 LHC_B1_APERTURE = INPUTS_DIR / "madx" / "aperture.b1.madx"
 LHC_B1_APERTOL = INPUTS_DIR / "madx" / "aper_tol.b1.madx"
+
 
 # ----- Fixtures for cpymadtools tests ----- #
 

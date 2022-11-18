@@ -1,4 +1,5 @@
 import math
+import pathlib
 
 from sys import platform
 
@@ -7,9 +8,11 @@ import pytest
 from cpymad.madx import Madx
 
 from cpymadtools.matching import match_chromaticities, match_tunes, match_tunes_and_chromaticities
-from pyhdtoolkit.cpymadtools.generators import LatticeGenerator
 
-BASE_LATTICE = LatticeGenerator.generate_base_cas_lattice()
+CURRENT_DIR = pathlib.Path(__file__).parent
+INPUTS_DIR = CURRENT_DIR / "inputs"
+
+BASE_LATTICE = (INPUTS_DIR / "madx" / "base_lattice.madx").read_text()
 
 
 @pytest.mark.skipif(platform.startswith("win"), reason="Windows is very flaky on this.")

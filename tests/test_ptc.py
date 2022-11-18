@@ -9,12 +9,11 @@ from pandas.testing import assert_frame_equal
 
 from cpymadtools.matching import match_tunes_and_chromaticities
 from cpymadtools.ptc import get_amplitude_detuning, get_rdts, ptc_track_particle, ptc_twiss
-from pyhdtoolkit.cpymadtools.generators import LatticeGenerator
 
 CURRENT_DIR = pathlib.Path(__file__).parent
 INPUTS_DIR = CURRENT_DIR / "inputs"
 
-BASE_LATTICE = LatticeGenerator.generate_base_cas_lattice()
+BASE_LATTICE = (INPUTS_DIR / "madx" / "base_lattice.madx").read_text()
 
 
 def test_amplitude_detuning_fails_on_high_order(caplog):

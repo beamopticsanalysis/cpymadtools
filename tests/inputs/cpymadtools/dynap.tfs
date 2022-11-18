@@ -2,7 +2,7 @@
 @ TYPE                 %s          "DYNAPTUNE"
 @ TITLE                %s    "FOOTPRINT TABLE"
 @ MADX_VERSION         %s "MAD-X 5.07.00 (2021.05.03)"
-@ ORIGIN               %s "pyhdtoolkit.cpymadtools.tune.make_footprint_table() function"
+@ ORIGIN               %s "cpymadtools.tune.make_footprint_table() function"
 @ ANGLE                %d                    7
 @ AMPLITUDE            %d                    5
 @ DSIGMA               %d                    1

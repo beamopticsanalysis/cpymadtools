@@ -1,0 +1,63 @@
+
+option, -info, -warn;
+TITLE, ’CAS2019 Project Team 3’;
+
+! PARAMETERS
+circumference = 1000.0;
+ncell = 24;
+lcell = circumference/ncell;
+lq = 3.00;
+angleBending = 2.0*pi/(4*ncell);
+
+! STRENGTHS
+kqf = 0.0228 * lq;
+kqd = -0.0228 * lq;
+lsex = 0.00001;
+
+! ELEMENTS
+mb:multipole, knl:={angleBending};
+qf: multipole, knl:={0, kqf};
+qd: multipole, knl:={0, kqd};
+msf: multipole, knl:={0, 0, ksf};
+msd: multipole, knl:={0, 0, ksd};
+
+! DECLARE SEQUENCE
+CAS3: sequence, refer=centre, l=circumference;
+   start_machine: marker, at = 0;
+   n = 1;
+   while (n < ncell+1) {
+    qf: qf,   at=(n-1)*lcell;
+    msf: msf, at=(n-1)*lcell + lsex/2.0;
+    mb: mb,   at=(n-1)*lcell + 0.15*lcell;
+    mb: mb,   at=(n-1)*lcell + 0.35*lcell;
+    qd: qd,   at=(n-1)*lcell + 0.50*lcell;
+    msd: msd, at=(n-1)*lcell + 0.50*lcell + lsex/2.0;
+    mb: mb,   at=(n-1)*lcell + 0.65*lcell;
+    mb: mb,   at=(n-1)*lcell + 0.85*lcell;
+    at=(n-1)*lcell;
+    n = n + 1;
+}
+end_machine: marker at=circumference;
+endsequence;
+
+! MAKE BEAM
+beam, particle=proton, sequence=CAS3, energy=20.0;
+
+! ACTIVATE SEQUENCE
+use, sequence=CAS3;
+
+select,flag=interpolate, class=drift, slice=5, range=#s/#e;
+
+ksf = 0;
+ksd = 0;
+
+! INTERPOLATE
+select, flag=interpolate, class=drift, slice=10, range=#s/#e;
+select, flag=interpolate, class=quadrupole, slice=5, range=#s/#e;
+select, flag=interpolate, class=sbend, slice=10, range=#s/#e;
+
+! TWISS
+select,flag=twiss, clear;
+select,flag=twiss, column=name ,s, x, y, betx, bety, mux, muy, dx, dy;
+twiss;
+    
