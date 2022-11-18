@@ -61,7 +61,6 @@ test = [
   "flaky >= 3.5",
   "pytest-randomly >= 3.3",
   "coverage[toml] >= 5.2",
-  "pyhdtoolkit >= 1.0",
 ]
 dev = [
   "black >= 22.1",
