@@ -1,5 +1,5 @@
 <h1 align="center">
-  <b>PyhDToolkit</b>
+  <b>cpymadtools</b>
 </h1>
 
 <p align="center">
@@ -57,17 +57,11 @@
   Lightweigth pythonic wrapper around cpymad
 </p>
 
-<p align="center">
-  <!-- General DOI -->
-  <a href="https://zenodo.org/badge/latestdoi/227081702">
-    <img alt="DOI" src="https://zenodo.org/badge/227081702.svg">
-  </a>
-</p>
 
 Link to [documentation].
 
 ## License
 
-Copyright &copy; 2019 Felix Soubelet. [MIT License](LICENSE)
+Copyright &copy; 2022 Felix Soubelet. [MIT License](LICENSE)
 
 [documentation]: https://fsoubelet.github.io/cpymadtools/
