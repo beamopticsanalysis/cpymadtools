@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing &mdash; cpymadtools 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.4b15212bc2faf4da239d738a7cf8e545.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release Notes" href="release.html" />
+    <link rel="prev" title="API Reference" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> cpymadtools
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#minutes-to-cpymadtools">5 Minutes to Cpymadtools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#useful-constants">Useful Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#betatron-coupling-utilities">Betatron Coupling Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#lhc-specific-utilities">LHC-Specific Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#matching-routines">Matching Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#ptc-routines">PTC Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tracking-routines">Tracking Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#tune-utilities">Tune Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#twiss-routines">TWISS Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#miscellaneous-utilities">Miscellaneous Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asking-for-help">Asking for Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bug-reports">Bug Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enhancement-proposals">Enhancement Proposals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-code-and-or-documentation">Contributing Code and/or Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#forking-the-repository">Forking the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-development-environment">Creating a Development Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-test-suite">Running the Test Suite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-standards">Code Standards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release.html#version-1-0-0">Version 1.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="releases/v1.0.0.html">1.0.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Reference bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cpymadtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Contributing</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/fsoubelet/cpymadtools" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline"></a></h1>
+<p>Contributions in the form of bug reports, bug fixes, documentation, enhancement proposals and more are welcome.
+This page provides information on how best to contribute.</p>
+<section id="asking-for-help">
+<h2>Asking for Help<a class="headerlink" href="#asking-for-help" title="Permalink to this headline"></a></h2>
+<p>If you have a question about how to use the package feel free to raise a <a class="reference external" href="https://github.com/fsoubelet/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Question</span></code> label.</p>
+</section>
+<section id="bug-reports">
+<h2>Bug Reports<a class="headerlink" href="#bug-reports" title="Permalink to this headline"></a></h2>
+<p>If you find a bug, please raise a <a class="reference external" href="https://github.com/fsoubelet/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Bug</span></code> label.
+Please include the following items in a bug report:</p>
+<ol class="arabic">
+<li><p>A minimal, self-contained snippet of Python code reproducing the problem. You can
+format the code nicely using Markdown, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```python
+import cpymadtools
+# your example here.
+```
+</pre></div>
+</div>
+</li>
+<li><p>An explanation of why the current behaviour is wrong/not desired, and what you expect instead.</p></li>
+<li><p>Information about the version of the package, along with versions of dependencies and the Python interpreter, and installation information.
+Information about other packages installed can be obtained by executing <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span></code> (if using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>) or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> (if using <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>) from the terminal.
+A convenience function is provided in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">_version</span></code> module:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cpymadtools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cpymadtools</span><span class="o">.</span><span class="n">_version</span><span class="o">.</span><span class="n">version_info</span><span class="p">())</span>
+<span class="go">    cpymadtools version: 1.0.0</span>
+<span class="go">           Install path: /Users/felixsoubelet/Repositories/Work/cpymadtools/cpymadtools</span>
+<span class="go">         Python version: 3.10.6</span>
+<span class="go">  Python implementation: 3.10.6 | packaged by conda-forge | (main, Aug 22 2022, 20:38:29) [Clang 13.0.1 ]</span>
+<span class="go">               Platform: macOS-12.6-arm64-arm-64bit</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="enhancement-proposals">
+<h2>Enhancement Proposals<a class="headerlink" href="#enhancement-proposals" title="Permalink to this headline"></a></h2>
+<p>If you have an idea about a new feature or some other improvement, please raise a <a class="reference external" href="https://github.com/fsoubelet/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Request</span></code> label first to discuss.
+Ideas and suggestions for how to improve the package are welcome.</p>
+</section>
+<section id="contributing-code-and-or-documentation">
+<h2>Contributing Code and/or Documentation<a class="headerlink" href="#contributing-code-and-or-documentation" title="Permalink to this headline"></a></h2>
+<section id="forking-the-repository">
+<h3>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this headline"></a></h3>
+<p>The cpymadtools source code is hosted on GitHub at the following location:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/fsoubelet/cpymadtools/">https://github.com/fsoubelet/cpymadtools/</a></p></li>
+</ul>
+<p>You will need your own fork to work on the code: go to the link above and hit the <strong>Fork</strong> button.
+Then clone your fork to your local machine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:your-user-name/cpymadtools.git
+$ cd cpymadtools
+$ git remote add upstream git@github.com:fsoubelet/cpymadtools.git
+</pre></div>
+</div>
+</section>
+<section id="creating-a-development-environment">
+<h3>Creating a Development Environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cpymadtools</span></code> uses <a class="reference external" href="https://hatch.pypa.io/latest/">Hatch</a> as a package development tool, which handles the creation &amp; management of a development environment, building, publishing, recipes and more.
+However, as the <strong>pyproject.toml</strong> file is fully <strong>PEP</strong>-compliant, using <code class="docutils literal notranslate"><span class="pre">Hatch</span></code> is <strong>not mandatory</strong> for development.</p>
+<p>Here is how to set yourself up:</p>
+<blockquote>
+<div><div class="tabbed-set docutils">
+<input checked="checked" id="759c1828-e73e-44c2-a299-62eb996880a8" name="780555f3-4fc0-486a-955e-6d76c21efd38" type="radio">
+</input><label class="tabbed-label" for="759c1828-e73e-44c2-a299-62eb996880a8">
+Using Hatch</label><div class="tabbed-content docutils">
+<p>Assuming you have <code class="docutils literal notranslate"><span class="pre">hatch</span></code> in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, once in the root of the repository setting yourself up is as easy as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch env create
+</pre></div>
+</div>
+<p>With this, <code class="docutils literal notranslate"><span class="pre">hatch</span></code> will create a new virtual environment and install in there the package as well as its runtime and development dependencies.
+The installation is similar to the editable mode from <code class="docutils literal notranslate"><span class="pre">pip</span></code>.
+You can enter the environment by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch shell
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Start your commands with <strong>hatch run</strong> to have <code class="docutils literal notranslate"><span class="pre">hatch</span></code> run them in the virtual environment, if you don’t wish to activate it.
+For instance, getting the Python version can be as simple as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch run python --version
+</pre></div>
+</div>
+</div>
+</div>
+<input id="af899571-b501-4a63-9438-28592519866d" name="780555f3-4fc0-486a-955e-6d76c21efd38" type="radio">
+</input><label class="tabbed-label" for="af899571-b501-4a63-9438-28592519866d">
+Without Hatch</label><div class="tabbed-content docutils">
+<p>If you want to skip using <code class="docutils literal notranslate"><span class="pre">Hatch</span></code>, you can create a virtual environment yourself and then <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> the package in editable mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install -e &quot;.[test,dev,docs]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+</section>
+<section id="creating-a-branch">
+<h3>Creating a Branch<a class="headerlink" href="#creating-a-branch" title="Permalink to this headline"></a></h3>
+<p>Before you do any new work or submit a pull request, please open an issue on GitHub to report the bug or propose the feature you’d like to add.</p>
+<p>It’s best to synchronize your fork with the upstream repository, then create a new, separate branch for each piece of work you want to do.
+E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+$ git fetch upstream
+$ git rebase upstream/master
+$ git checkout -b shiny-new-feature
+$ git push -u origin shiny-new-feature
+</pre></div>
+</div>
+<p>This changes your working directory to the <strong>shiny-new-feature</strong> branch.
+Keep any changes in this branch specific to one bug or feature, so it is clear what the branch brings.</p>
+<p>To update this branch with the latest code from <code class="docutils literal notranslate"><span class="pre">cpymadtools</span></code>, you can retrieve the changes from the master branch and perform a rebase:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
+$ git rebase upstream/master
+</pre></div>
+</div>
+<p>This will replay your commits on top of the latest <code class="docutils literal notranslate"><span class="pre">cpymadtools</span></code> git master.
+If this leads to merge conflicts, these need to be resolved <em>before</em> submitting a pull request.
+Alternatively, you can merge the changes in from upstream/master instead of rebasing, which can be simpler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
+$ git merge upstream/master
+</pre></div>
+</div>
+<p>Again, any conflicts need to be resolved <em>before</em> submitting a pull request.</p>
+</section>
+<section id="running-the-test-suite">
+<h3>Running the Test Suite<a class="headerlink" href="#running-the-test-suite" title="Permalink to this headline"></a></h3>
+<p>The repository includes a suite of unit tests you should run to check your changes.
+One can run the test suite in the following way:</p>
+<blockquote>
+<div><div class="tabbed-set docutils">
+<input checked="checked" id="1cceae6b-57c0-4c23-ab17-2b7966e9e361" name="b4fcb8fe-edfa-42fc-8868-293e98961db8" type="radio">
+</input><label class="tabbed-label" for="1cceae6b-57c0-4c23-ab17-2b7966e9e361">
+Using Hatch</label><div class="tabbed-content docutils">
+<p>The simplest way to run the test suite using <code class="docutils literal notranslate"><span class="pre">hatch</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch run python -m pytest
+</pre></div>
+</div>
+</div>
+<input id="4dab4ed3-808b-49cf-9685-74b91510d703" name="b4fcb8fe-edfa-42fc-8868-293e98961db8" type="radio">
+</input><label class="tabbed-label" for="4dab4ed3-808b-49cf-9685-74b91510d703">
+Without Hatch</label><div class="tabbed-content docutils">
+<p>In your virtual environment, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pytest
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<p>All tests are automatically run via <strong>GitHub Actions</strong> for every push onto the main repository, and in every pull request.
+The test suite <strong>must</strong> pass before code can be accepted.
+Test coverage is also collected automatically via the <a class="reference external" href="https://about.codecov.io/">Codecov</a> service, and the target for total coverage is usually 95%, though exceptions can be made.</p>
+</section>
+<section id="code-standards">
+<h3>Code Standards<a class="headerlink" href="#code-standards" title="Permalink to this headline"></a></h3>
+<p>All code must conform to the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> standard.
+Lines up to 120 characters are allowed, although please try to keep below wherever possible.
+Formatting is enforced using the <code class="docutils literal notranslate"><span class="pre">black</span></code> tool, and imports sorting with <code class="docutils literal notranslate"><span class="pre">isort</span></code>.</p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0484">Type hints</a> are required for all user-facing classes and functions.
+As much as possible, types are enforced with the help of the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> tool.
+Additionally, code quality is kept in check with the <code class="docutils literal notranslate"><span class="pre">pylint</span></code> tool.</p>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h3>
+<p>Docstrings for user-facing classes and functions should follow the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#s3.8.1-comments-in-doc-strings">Google</a>
+format, including sections for Parameters and Examples.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cpymadtools</span></code> uses <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> to build its documentation, which is hosted on GitHub Pages.
+Documentation is written in the <code class="docutils literal notranslate"><span class="pre">RestructuredText</span></code> markup language (<strong>.rst</strong> files) in the <strong>docs</strong> folder.
+The documentation consists both of prose and API reference documentation.
+All user-facing classes and functions should be included in the API documentation.</p>
+<p>The documentation can be built locally by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m sphinx -v -b html docs doc_build -d doc_build
+</pre></div>
+</div>
+<p>The static HTML pages will be available in a newly created <strong>doc_build</strong> folder.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="release.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Felix Soubelet.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: 67.5%; }
+  </style>
+
+
+
+</body>
+</html>

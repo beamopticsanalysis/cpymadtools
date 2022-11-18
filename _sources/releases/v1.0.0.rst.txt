@@ -1,0 +1,12 @@
+.. _release_1.0.0:
+
+1.0.0
+-----
+
+Release `1.0.0` is the first release of `cpymadtools`, as an extracted package from `~pyhdtoolkit`.
+
+Some small changes have been applied to the API, with also a few deletions, from `~pyhdtoolkit` version `1.0.0`.
+In the future, `pyhdtoolkit.cpymadtools` will act as more of an experimental site for the development of this package,
+but relative feature parity remains a target.
+
+See `v1.0.0 release notes on GitHub <https://github.com/fsoubelet/cpymadtools/releases/tag/1.0.0>`_.

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cpymadtools.utils &mdash; cpymadtools 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.4b15212bc2faf4da239d738a7cf8e545.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> cpymadtools
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#minutes-to-cpymadtools">5 Minutes to Cpymadtools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#useful-constants">Useful Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#betatron-coupling-utilities">Betatron Coupling Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#lhc-specific-utilities">LHC-Specific Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#matching-routines">Matching Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#ptc-routines">PTC Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#tracking-routines">Tracking Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#tune-utilities">Tune Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#twiss-routines">TWISS Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#miscellaneous-utilities">Miscellaneous Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#asking-for-help">Asking for Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#bug-reports">Bug Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#enhancement-proposals">Enhancement Proposals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#contributing-code-and-or-documentation">Contributing Code and/or Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#forking-the-repository">Forking the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#creating-a-development-environment">Creating a Development Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#running-the-test-suite">Running the Test Suite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#code-standards">Code Standards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../release.html#version-1-0-0">Version 1.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../releases/v1.0.0.html">1.0.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Reference bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cpymadtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cpymadtools.utils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cpymadtools.utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. _cpymadtools-utils:</span>
+
+<span class="sd">Miscellaneous Utilities</span>
+<span class="sd">-----------------------</span>
+
+<span class="sd">Module with utility functions to do mundane operations with `~cpymad.madx.Madx` objects.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tfs</span>
+
+<span class="kn">from</span> <span class="nn">cpymad.madx</span> <span class="kn">import</span> <span class="n">Madx</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="export_madx_table"><a class="viewcode-back" href="../../api.html#cpymadtools.utils.export_madx_table">[docs]</a><span class="k">def</span> <span class="nf">export_madx_table</span><span class="p">(</span>
+    <span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">headers_table</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;SUMM&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 0.17.0</span>
+
+<span class="sd">    Exports an internal table from the ``MAD-X`` process into a `~tfs.frame.TfsDataFrame` on disk.</span>
+
+<span class="sd">    .. important::</span>
+<span class="sd">        Tables can only be correctly read back in ``MAD-X`` (through ``READTABLE``) if the written</span>
+<span class="sd">        file has a ``NAME`` and a ``TYPE`` entries in its headers.</span>
+
+<span class="sd">        If these entries are not provided (see below for their usage), then</span>
+<span class="sd">        they will be given default values so the **TFS** file can be read by ``MAD-X``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.</span>
+<span class="sd">        table_name (str): the name of the internal table to retrieve.</span>
+<span class="sd">        file_name (str): the name of the file to export to.</span>
+<span class="sd">        pattern (str): if given, will be used as a regular expression to filter the extracted</span>
+<span class="sd">            table, by passing it as the *regex* parameter of `pandas.DataFrame.filter`.</span>
+<span class="sd">        headers_table (str): the name of the internal table to use for headers.</span>
+<span class="sd">            Defaults to ``SUMM``.</span>
+<span class="sd">        **kwargs: any keyword arguments will be passed to `~tfs.writer.write_tfs`.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; madx.command.twiss()</span>
+<span class="sd">            &gt;&gt;&gt; export_madx_table(madx, table_name=&quot;TWISS&quot;, file_name=&quot;twiss.tfs&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> into &#39;</span><span class="si">{</span><span class="n">file_path</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">dframe</span> <span class="o">=</span> <span class="n">get_table_tfs</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">headers_table</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pattern</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting NAME column as index and filtering extracted table with regex pattern &#39;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="n">dframe</span> <span class="o">=</span> <span class="n">dframe</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="n">pattern</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;NAME&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dframe</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No &#39;NAME&#39; header found, adding a default value &#39;EXPORT&#39;&quot;</span><span class="p">)</span>
+        <span class="n">dframe</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;EXPORT&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;TYPE&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dframe</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No &#39;TYPE&#39; header found, adding a default value &#39;EXPORT&#39;&quot;</span><span class="p">)</span>
+        <span class="n">dframe</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;TYPE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;EXPORT&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Writing to disk&quot;</span><span class="p">)</span>
+    <span class="n">tfs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">dframe</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_table_tfs"><a class="viewcode-back" href="../../api.html#cpymadtools.utils.get_table_tfs">[docs]</a><span class="k">def</span> <span class="nf">get_table_tfs</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">headers_table</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;SUMM&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tfs</span><span class="o">.</span><span class="n">TfsDataFrame</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 0.11.0</span>
+
+<span class="sd">    Turns an internal table from the ``MAD-X`` process into a `~tfs.frame.TfsDataFrame`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.</span>
+<span class="sd">        table_name (str): the name of the internal table to retrieve.</span>
+<span class="sd">        headers_table (str): the name of the internal table to use for headers.</span>
+<span class="sd">            Defaults to ``SUMM``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A `~tfs.frame.TfsDataFrame` object with the *table_name* data, and the desired</span>
+<span class="sd">        *headers_table* (usually ``SUMM``) as headers.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; twiss_tfs = get_table_tfs(madx, table_name=&quot;TWISS&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracting table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> into a TfsDataFrame&quot;</span><span class="p">)</span>
+    <span class="n">dframe</span> <span class="o">=</span> <span class="n">tfs</span><span class="o">.</span><span class="n">TfsDataFrame</span><span class="p">(</span><span class="n">madx</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span><span class="o">.</span><span class="n">dframe</span><span class="p">())</span>
+    <span class="n">dframe</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">dframe</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="s2">&quot;NAME&quot;</span> <span class="ow">in</span> <span class="n">dframe</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Uppercasing &#39;NAME&#39; column contents&quot;</span><span class="p">)</span>
+        <span class="n">dframe</span><span class="o">.</span><span class="n">NAME</span> <span class="o">=</span> <span class="n">dframe</span><span class="o">.</span><span class="n">NAME</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Turning </span><span class="si">{</span><span class="n">headers_table</span><span class="si">}</span><span class="s2"> table into headers&quot;</span><span class="p">)</span>
+    <span class="n">dframe</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="n">var</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span> <span class="n">madx</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">headers_table</span><span class="p">][</span><span class="n">var</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">madx</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">headers_table</span><span class="p">]}</span>
+    <span class="k">return</span> <span class="n">dframe</span></div>
+
+
+<span class="c1"># ----- Helpers ----- #</span>
+
+
+<span class="k">def</span> <span class="nf">_get_k_strings</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">orientation</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;both&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the list of K-strings for various magnets and orders (``K1L``, ``K2SL`` etc strings).</span>
+<span class="sd">    Initial implementation credits go to :user:`Joschua Dilly &lt;joschd&gt;`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        start (int): the starting order, defaults to 0.</span>
+<span class="sd">        stop (int): the order to go up to, defaults to 8.</span>
+<span class="sd">        orientation (str): magnet orientation, can be `straight`, `skew` or `both`.</span>
+<span class="sd">            Defaults to `both`.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The `list` of names as strings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">orientation</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;straight&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">,</span> <span class="s2">&quot;both&quot;</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Orientation &#39;</span><span class="si">{</span><span class="n">orientation</span><span class="si">}</span><span class="s2">&#39; is not accepted, should be one of &#39;straight&#39;, &#39;skew&#39;, &#39;both&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid &#39;orientation&#39; parameter&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s2">&quot;straight&quot;</span><span class="p">:</span>
+        <span class="n">orientation</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,)</span>
+    <span class="k">elif</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s2">&quot;skew&quot;</span><span class="p">:</span>
+        <span class="n">orientation</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># both</span>
+        <span class="n">orientation</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;K</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">d</span><span class="si">}{</span><span class="n">s</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">L&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">orientation</span><span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Felix Soubelet.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: 67.5%; }
+  </style>
+
+
+
+</body>
+</html>
