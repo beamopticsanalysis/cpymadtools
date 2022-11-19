@@ -1,0 +1,11 @@
+{
+    "creators": [
+        {
+            "name": "Felix Soubelet",
+            "affiliation": "University of Liverpool & CERN",
+            "orcid": "0000-0001-8012-1440"
+        }
+    ],
+    "title": "cpymadtools",
+    "description": "Lightweigth pythonic wrapper around cpymad"
+}
