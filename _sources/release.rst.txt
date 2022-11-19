@@ -1,7 +1,7 @@
 Release Notes
 =============
 
-The full list of releases can be found in the GitHub repository's `releases page <https://github.com/fsoubelet/cpymadtools/releases>`_.
+The full list of releases can be found in the GitHub repository's `releases page <https://github.com/beamopticsanalysis/cpymadtools/releases>`_.
 
 Version 1.0.0
 -------------

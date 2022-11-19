@@ -14,7 +14,7 @@ Install the package from ``PyPI``::
 
 To install the latest development version of cpymadtools, you can use ``pip`` with the latest GitHub master::
 
-    python -m pip install git+https://github.com/fsoubelet/cpymadtools.git
+    python -m pip install git+https://github.com/beamopticsanalysis/cpymadtools.git
 
 To set up a development environment, see the :doc:`contributing instructions <contributing>`.
 
@@ -40,10 +40,10 @@ Contents
 
 ..    @software{pyhdtoolkit,
 ..      author       = {Felix Soubelet},
-..      title        = {fsoubelet/PyhDToolkit},
+..      title        = {beamopticsanalysis/cpymadtools},
 ..      publisher    = {Zenodo},
-..      doi          = {10.5281/zenodo.4268804},
-..      url          = {https://doi.org/10.5281/zenodo.4268804}
+..      doi          = {},
+..      url          = {}
 ..    }
 
 Acknowledgments
@@ -61,7 +61,7 @@ Others who have helped its development by contributing code, documentation, comm
 License
 -------
 
-The package is licensed under the `MIT license <https://github.com/fsoubelet/cpymadtools/blob/master/LICENSE>`_. 
+The package is licensed under the `MIT license <https://github.com/beamopticsanalysis/cpymadtools/blob/master/LICENSE>`_. 
 
 Indices and tables
 ------------------

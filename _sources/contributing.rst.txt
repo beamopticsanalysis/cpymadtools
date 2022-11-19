@@ -7,12 +7,12 @@ This page provides information on how best to contribute.
 Asking for Help
 ---------------
 
-If you have a question about how to use the package feel free to raise a `GitHub issue <https://github.com/fsoubelet/cpymadtools/issues/new>`_ with the ``Question`` label.
+If you have a question about how to use the package feel free to raise a `GitHub issue <https://github.com/beamopticsanalysis/cpymadtools/issues/new>`_ with the ``Question`` label.
 
 Bug Reports
 -----------
 
-If you find a bug, please raise a `GitHub issue <https://github.com/fsoubelet/cpymadtools/issues/new>`_ with the ``Bug`` label.
+If you find a bug, please raise a `GitHub issue <https://github.com/beamopticsanalysis/cpymadtools/issues/new>`_ with the ``Bug`` label.
 Please include the following items in a bug report:
 
 1. A minimal, self-contained snippet of Python code reproducing the problem. You can
@@ -43,7 +43,7 @@ Please include the following items in a bug report:
 Enhancement Proposals
 ---------------------
 
-If you have an idea about a new feature or some other improvement, please raise a `GitHub issue <https://github.com/fsoubelet/cpymadtools/issues/new>`_ with the ``Feature Request`` label first to discuss.
+If you have an idea about a new feature or some other improvement, please raise a `GitHub issue <https://github.com/beamopticsanalysis/cpymadtools/issues/new>`_ with the ``Feature Request`` label first to discuss.
 Ideas and suggestions for how to improve the package are welcome.
 
 Contributing Code and/or Documentation
@@ -54,14 +54,14 @@ Forking the Repository
 
 The cpymadtools source code is hosted on GitHub at the following location:
 
-* `https://github.com/fsoubelet/cpymadtools/ <https://github.com/fsoubelet/cpymadtools/>`_
+* `https://github.com/beamopticsanalysis/cpymadtools/ <https://github.com/beamopticsanalysis/cpymadtools/>`_
 
 You will need your own fork to work on the code: go to the link above and hit the **Fork** button.
 Then clone your fork to your local machine::
 
     $ git clone git@github.com:your-user-name/cpymadtools.git
     $ cd cpymadtools
-    $ git remote add upstream git@github.com:fsoubelet/cpymadtools.git
+    $ git remote add upstream git@github.com:beamopticsanalysis/cpymadtools.git
 
 Creating a Development Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

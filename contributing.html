@@ -122,11 +122,11 @@
 This page provides information on how best to contribute.</p>
 <section id="asking-for-help">
 <h2>Asking for Help<a class="headerlink" href="#asking-for-help" title="Permalink to this headline"></a></h2>
-<p>If you have a question about how to use the package feel free to raise a <a class="reference external" href="https://github.com/fsoubelet/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Question</span></code> label.</p>
+<p>If you have a question about how to use the package feel free to raise a <a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Question</span></code> label.</p>
 </section>
 <section id="bug-reports">
 <h2>Bug Reports<a class="headerlink" href="#bug-reports" title="Permalink to this headline"></a></h2>
-<p>If you find a bug, please raise a <a class="reference external" href="https://github.com/fsoubelet/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Bug</span></code> label.
+<p>If you find a bug, please raise a <a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Bug</span></code> label.
 Please include the following items in a bug report:</p>
 <ol class="arabic">
 <li><p>A minimal, self-contained snippet of Python code reproducing the problem. You can
@@ -158,7 +158,7 @@ A convenience function is provided in the <code class="xref py py-obj docutils l
 </section>
 <section id="enhancement-proposals">
 <h2>Enhancement Proposals<a class="headerlink" href="#enhancement-proposals" title="Permalink to this headline"></a></h2>
-<p>If you have an idea about a new feature or some other improvement, please raise a <a class="reference external" href="https://github.com/fsoubelet/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Request</span></code> label first to discuss.
+<p>If you have an idea about a new feature or some other improvement, please raise a <a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Request</span></code> label first to discuss.
 Ideas and suggestions for how to improve the package are welcome.</p>
 </section>
 <section id="contributing-code-and-or-documentation">
@@ -167,13 +167,13 @@ Ideas and suggestions for how to improve the package are welcome.</p>
 <h3>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this headline"></a></h3>
 <p>The cpymadtools source code is hosted on GitHub at the following location:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/fsoubelet/cpymadtools/">https://github.com/fsoubelet/cpymadtools/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/">https://github.com/beamopticsanalysis/cpymadtools/</a></p></li>
 </ul>
 <p>You will need your own fork to work on the code: go to the link above and hit the <strong>Fork</strong> button.
 Then clone your fork to your local machine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:your-user-name/cpymadtools.git
 $ cd cpymadtools
-$ git remote add upstream git@github.com:fsoubelet/cpymadtools.git
+$ git remote add upstream git@github.com:beamopticsanalysis/cpymadtools.git
 </pre></div>
 </div>
 </section>
@@ -184,8 +184,8 @@ However, as the <strong>pyproject.toml</strong> file is fully <strong>PEP</stron
 <p>Here is how to set yourself up:</p>
 <blockquote>
 <div><div class="tabbed-set docutils">
-<input checked="checked" id="91a827d0-f3dc-49d7-8a51-1c6e7df5a0e3" name="66602188-b961-4fdb-896b-fadb30e64ed4" type="radio">
-</input><label class="tabbed-label" for="91a827d0-f3dc-49d7-8a51-1c6e7df5a0e3">
+<input checked="checked" id="c768fb8c-95c6-47ae-a95f-95770c56c109" name="32282784-59ab-4573-a62f-7e9911ca87c7" type="radio">
+</input><label class="tabbed-label" for="c768fb8c-95c6-47ae-a95f-95770c56c109">
 Using Hatch</label><div class="tabbed-content docutils">
 <p>Assuming you have <code class="docutils literal notranslate"><span class="pre">hatch</span></code> in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, once in the root of the repository setting yourself up is as easy as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch env create
@@ -206,8 +206,8 @@ For instance, getting the Python version can be as simple as:</p>
 </div>
 </div>
 </div>
-<input id="cdca7891-21a5-4d58-9e4b-e332e76e4732" name="66602188-b961-4fdb-896b-fadb30e64ed4" type="radio">
-</input><label class="tabbed-label" for="cdca7891-21a5-4d58-9e4b-e332e76e4732">
+<input id="fa8661cb-0937-4e34-984f-ef772adf58b0" name="32282784-59ab-4573-a62f-7e9911ca87c7" type="radio">
+</input><label class="tabbed-label" for="fa8661cb-0937-4e34-984f-ef772adf58b0">
 Without Hatch</label><div class="tabbed-content docutils">
 <p>If you want to skip using <code class="docutils literal notranslate"><span class="pre">Hatch</span></code>, you can create a virtual environment yourself and then <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> the package in editable mode:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install -e &quot;.[test,dev,docs]&quot;
@@ -251,16 +251,16 @@ $ git merge upstream/master
 One can run the test suite in the following way:</p>
 <blockquote>
 <div><div class="tabbed-set docutils">
-<input checked="checked" id="ec104b6a-00b7-4211-a028-4af83d97479d" name="16cdbe59-cb94-4898-b0ad-5cd03c3d1941" type="radio">
-</input><label class="tabbed-label" for="ec104b6a-00b7-4211-a028-4af83d97479d">
+<input checked="checked" id="2287b20f-e76f-4f07-b319-7c8f6cc15296" name="66213915-f038-4071-9f29-0d3866e2b65e" type="radio">
+</input><label class="tabbed-label" for="2287b20f-e76f-4f07-b319-7c8f6cc15296">
 Using Hatch</label><div class="tabbed-content docutils">
 <p>The simplest way to run the test suite using <code class="docutils literal notranslate"><span class="pre">hatch</span></code> is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch run python -m pytest
 </pre></div>
 </div>
 </div>
-<input id="242a15c7-2943-4251-84e2-43e52ff45c0a" name="16cdbe59-cb94-4898-b0ad-5cd03c3d1941" type="radio">
-</input><label class="tabbed-label" for="242a15c7-2943-4251-84e2-43e52ff45c0a">
+<input id="b5caa1d2-3e39-48a7-aef8-72b3f06a2e40" name="66213915-f038-4071-9f29-0d3866e2b65e" type="radio">
+</input><label class="tabbed-label" for="b5caa1d2-3e39-48a7-aef8-72b3f06a2e40">
 Without Hatch</label><div class="tabbed-content docutils">
 <p>In your virtual environment, run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pytest
