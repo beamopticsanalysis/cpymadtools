@@ -44,7 +44,7 @@ release = cpymadtools.__version__
 # -- General configuration ---------------------------------------------------
 
 # Config for the sphinx_issues extension
-issues_github_path = "fsoubelet/cpymadtools"
+issues_github_path = "beamopticsanalysis/cpymadtools"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

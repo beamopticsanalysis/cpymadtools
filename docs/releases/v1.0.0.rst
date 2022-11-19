@@ -9,4 +9,4 @@ Some small changes have been applied to the API, with also a few deletions, from
 In the future, `pyhdtoolkit.cpymadtools` will act as more of an experimental site for the development of this package,
 but relative feature parity remains a target.
 
-See `v1.0.0 release notes on GitHub <https://github.com/fsoubelet/cpymadtools/releases/tag/1.0.0>`_.
+See `v1.0.0 release notes on GitHub <https://github.com/beamopticsanalysis/cpymadtools/releases/tag/1.0.0>`_.
