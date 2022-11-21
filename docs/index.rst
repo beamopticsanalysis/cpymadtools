@@ -30,21 +30,21 @@ Contents
     release
     bibliography
 
-.. Citing
-.. ------
+Citing
+------
 
-.. If you have a use of these codes, please consider citing them.
-.. The repository has a DOI_ provided by Zenodo_, and all versions can be cited with the following ``BibTeX`` entry:
+If you have a use of these codes, please consider citing them.
+The repository has a DOI_ provided by Zenodo_, and all versions can be cited with the following ``BibTeX`` entry:
 
-.. .. code-block:: bibtex
+.. code-block:: bibtex
 
-..    @software{pyhdtoolkit,
-..      author       = {Felix Soubelet},
-..      title        = {beamopticsanalysis/cpymadtools},
-..      publisher    = {Zenodo},
-..      doi          = {},
-..      url          = {}
-..    }
+   @software{cpymadtools,
+     author       = {Felix Soubelet},
+     title        = {beamopticsanalysis/cpymadtools},
+     publisher    = {Zenodo},
+     doi          = {10.5281/zenodo.7339939},
+     url          = {https://github.com/beamopticsanalysis/cpymadtools}
+   }
 
 Acknowledgments
 ---------------
