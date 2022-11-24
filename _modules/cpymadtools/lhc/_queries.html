@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cpymadtools.lhc._queries &mdash; cpymadtools 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.4b15212bc2faf4da239d738a7cf8e545.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> cpymadtools
+          </a>
+              <div class="version">
+                1.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#minutes-to-cpymadtools">5 Minutes to Cpymadtools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#useful-constants">Useful Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#betatron-coupling-utilities">Betatron Coupling Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#lhc-specific-utilities">LHC-Specific Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#matching-routines">Matching Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#ptc-routines">PTC Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#tracking-routines">Tracking Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#tune-utilities">Tune Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#twiss-routines">TWISS Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#miscellaneous-utilities">Miscellaneous Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#asking-for-help">Asking for Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#bug-reports">Bug Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#enhancement-proposals">Enhancement Proposals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#contributing-code-and-or-documentation">Contributing Code and/or Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#forking-the-repository">Forking the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#creating-a-development-environment">Creating a Development Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#running-the-test-suite">Running the Test Suite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#code-standards">Code Standards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#version-1-1-0">Version 1.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../releases/v1.1.0.html">1.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#version-1-0-0">Version 1.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../releases/v1.0.0.html">1.0.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Reference bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cpymadtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cpymadtools.lhc._queries</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cpymadtools.lhc._queries</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. _lhc-queries:</span>
+
+<span class="sd">**Querying Utilities**</span>
+
+<span class="sd">The functions below are settings query utilities for the ``LHC``.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tfs</span>
+
+<span class="kn">from</span> <span class="nn">cpymad.madx</span> <span class="kn">import</span> <span class="n">Madx</span>
+
+<span class="kn">from</span> <span class="nn">cpymadtools</span> <span class="kn">import</span> <span class="n">twiss</span>
+<span class="kn">from</span> <span class="nn">cpymadtools.constants</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LHC_KCD_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCO_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCOSX_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCOX_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCS_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCSSX_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCSX_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KCTX_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KO_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KQS_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KQSX_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KQTF_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KSF_KNOBS</span><span class="p">,</span>
+    <span class="n">LHC_KSS_KNOBS</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">cpymadtools.lhc._setup</span> <span class="kn">import</span> <span class="n">lhc_orbit_variables</span>
+<span class="kn">from</span> <span class="nn">cpymadtools.utils</span> <span class="kn">import</span> <span class="n">_get_k_strings</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="get_magnets_powering"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._queries.get_magnets_powering">[docs]</a><span class="k">def</span> <span class="nf">get_magnets_powering</span><span class="p">(</span>
+    <span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">patterns</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s2">&quot;^mb\.&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;^mq\.&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;^ms\.&quot;</span><span class="p">],</span> <span class="n">brho</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tfs</span><span class="o">.</span><span class="n">TfsDataFrame</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 0.17.0</span>
+
+<span class="sd">    Gets the twiss table with additional defined columns for the given *patterns*.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        Here are below certain useful patterns for the ``LHC`` and their meaning:</span>
+
+<span class="sd">        * ``^mb\.`` :math:`\rightarrow` main bends.</span>
+<span class="sd">        * ``^mq\.`` :math:`\rightarrow` main quadrupoles.</span>
+<span class="sd">        * ``^ms\.`` :math:`\rightarrow` main sextupoles.</span>
+<span class="sd">        * ``^mb[rswx]`` :math:`\rightarrow` separation dipoles.</span>
+<span class="sd">        * ``^mq[mwxy]`` :math:`\rightarrow` insertion quads.</span>
+<span class="sd">        * ``^mqt.1[23]`` :math:`\rightarrow` short tuning quads (12 &amp; 13).</span>
+<span class="sd">        * ``^mqtl`` :math:`\rightarrow` long  tuning quads.</span>
+<span class="sd">        * ``^mcbx`` :math:`\rightarrow` crossing scheme magnets.</span>
+<span class="sd">        * ``^mcb[cy]`` :math:`\rightarrow` crossing scheme magnets.</span>
+
+<span class="sd">        To make no selection, one can give ``patterns=[&quot;&quot;]`` and this will give back</span>
+<span class="sd">        the results for *all* elements. One can also give a specific magnet&#39;s exact</span>
+<span class="sd">        name to include it in the results.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        The ``TWISS`` flag will be fully cleared after running this function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.</span>
+<span class="sd">        patterns (Sequence[str]): a list of regex patterns to define which elements</span>
+<span class="sd">            should be selected and included in the returned table. Defaults to selecting</span>
+<span class="sd">            the main bends, quads and sextupoles. See the note admonition above for</span>
+<span class="sd">            useful patterns to select specific ``LHC`` magnet families.</span>
+<span class="sd">        brho (Union[str, float]): optional, an explicit definition for the magnetic</span>
+<span class="sd">            rigidity in :math:`Tm^{-1}`. If not given, it will be assumed that</span>
+<span class="sd">            a ``brho`` quantity is defined in the ``MAD-X`` globals.</span>
+<span class="sd">        **kwargs: any keyword argument will be passed to `~.twiss.get_pattern_twiss` and</span>
+<span class="sd">            later on to the ``TWISS`` command executed in ``MAD-X``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A `~tfs.TfsDataFrame` of the ``TWISS`` table, with the relevant newly defined columns</span>
+<span class="sd">        and including the elements matching the regex *patterns* that were provided.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; sextupoles_powering = get_magnets_powering(madx, patterns=[r&quot;^ms\.&quot;])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Computing magnets field and powering limits proportions&quot;</span><span class="p">)</span>
+    <span class="n">NEW_COLNAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;keyword&quot;</span><span class="p">,</span> <span class="s2">&quot;ampere&quot;</span><span class="p">,</span> <span class="s2">&quot;imax&quot;</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">,</span> <span class="s2">&quot;kn&quot;</span><span class="p">,</span> <span class="s2">&quot;kmax&quot;</span><span class="p">,</span> <span class="s2">&quot;integrated_field&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">]</span>
+    <span class="n">NEW_COLNAMES</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">NEW_COLNAMES</span> <span class="o">+</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span> <span class="p">[])))</span>  <span class="c1"># in case user gives explicit columns</span>
+    <span class="n">_list_field_currents</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">brho</span><span class="o">=</span><span class="n">brho</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">twiss</span><span class="o">.</span><span class="n">get_pattern_twiss</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">NEW_COLNAMES</span><span class="p">,</span> <span class="n">patterns</span><span class="o">=</span><span class="n">patterns</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="query_arc_correctors_powering"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._queries.query_arc_correctors_powering">[docs]</a><span class="k">def</span> <span class="nf">query_arc_correctors_powering</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 0.15.0</span>
+
+<span class="sd">    Queries for the arc corrector strengths and returns their values as a percentage of</span>
+<span class="sd">    their max powering. This is a port of one of the **corr_value.madx** file&#39;s macros</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object with an</span>
+<span class="sd">            active (HL)LHC sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A `dict` with the percentage for each corrector.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; arc_knobs = query_arc_correctors_powering(madx)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplets correctors powering&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc tune trim quadrupole correctors (MQTs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mqt_max</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 120 T/m</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mqt_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KQTF_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc short straight sections skew quadrupole correctors (MQSs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mqs_max</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 120 T/m</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mqs_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KQS_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc sextupole correctors (MSs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_ms_max</span> <span class="o">=</span> <span class="mf">1.280</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 1.28 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_ms_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KSF_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc skew sextupole correctors (MSSs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mss_max</span> <span class="o">=</span> <span class="mf">1.280</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 1.28 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mss_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KSS_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc spool piece (skew) sextupole correctors (MCSs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mcs_max</span> <span class="o">=</span> <span class="mf">0.471</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.471 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mcs_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCS_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc spool piece (skew) octupole correctors (MCOs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mco_max</span> <span class="o">=</span> <span class="mf">0.040</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.04 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mco_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCO_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc spool piece (skew) decapole correctors (MCDs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mcd_max</span> <span class="o">=</span> <span class="mf">0.100</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.1 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mcd_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCD_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying arc short straight sections octupole correctors (MOs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mo_max</span> <span class="o">=</span> <span class="mf">0.29</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.29 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mo_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KO_KNOBS</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="query_triplet_correctors_powering"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._queries.query_triplet_correctors_powering">[docs]</a><span class="k">def</span> <span class="nf">query_triplet_correctors_powering</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 0.15.0</span>
+
+<span class="sd">    Queries for the triplet corrector strengths and returns their values as a percentage of</span>
+<span class="sd">    their max powering. This is a port of one of the **corr_value.madx** file&#39;s macros.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object with an</span>
+<span class="sd">            active (HL)LHC sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A `dict` with the percentage for each corrector.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; triplet_knobs = query_triplet_correctors_powering(madx)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplets correctors powering&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplet skew quadrupole correctors (MQSXs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mqsx_max</span> <span class="o">=</span> <span class="mf">1.360</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 1.36 T @ 17mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mqsx_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KQSX_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplet sextupole correctors (MCSXs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mcsx_max</span> <span class="o">=</span> <span class="mf">0.028</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.028 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mcsx_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCSX_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplet skew sextupole correctors (MCSSXs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mcssx_max</span> <span class="o">=</span> <span class="mf">0.11</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.11 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mcssx_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCSSX_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplet octupole correctors (MCOXs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mcox_max</span> <span class="o">=</span> <span class="mf">0.045</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.045 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mcox_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCOX_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplet skew octupole correctors (MCOSXs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mcosx_max</span> <span class="o">=</span> <span class="mf">0.048</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.048 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mcosx_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCOSX_KNOBS</span><span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Querying triplet decapole correctors (MCTXs) powering&quot;</span><span class="p">)</span>
+    <span class="n">k_mctx_max</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="mi">120</span> <span class="o">/</span> <span class="mf">0.017</span> <span class="o">**</span> <span class="mi">5</span> <span class="o">/</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">brho</span>  <span class="c1"># 0.010 T @ 17 mm</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">knob</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_mctx_max</span> <span class="k">for</span> <span class="n">knob</span> <span class="ow">in</span> <span class="n">LHC_KCTX_KNOBS</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="get_current_orbit_setup"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._queries.get_current_orbit_setup">[docs]</a><span class="k">def</span> <span class="nf">get_current_orbit_setup</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 0.8.0</span>
+
+<span class="sd">    Get the current values for the (HL)LHC orbit variables. Initial implementation credits go to</span>
+<span class="sd">    :user:`Joschua Dilly &lt;joschd&gt;`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A `dict` of all orbit variables set, and their values as set in the ``MAD-X`` globals.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; orbit_setup = get_current_orbit_setup(madx)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Extracting orbit variables from global table&quot;</span><span class="p">)</span>
+    <span class="n">variables</span><span class="p">,</span> <span class="n">specials</span> <span class="o">=</span> <span class="n">lhc_orbit_variables</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">orbit_variable</span><span class="p">:</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="n">orbit_variable</span><span class="p">]</span> <span class="k">for</span> <span class="n">orbit_variable</span> <span class="ow">in</span> <span class="n">variables</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">specials</span><span class="o">.</span><span class="n">keys</span><span class="p">())}</span></div>
+
+
+<span class="c1"># ----- Helpers ----- #</span>
+
+
+<span class="k">def</span> <span class="nf">_list_field_currents</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">brho</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates additional columns for the ``TWISS`` table with the magnets&#39; total fields</span>
+<span class="sd">    and currents, to help later on determine which proportion of their maximum powering</span>
+<span class="sd">    the current setting is using. This is an implementation of the old utility script</span>
+<span class="sd">    located at **/afs/cern.ch/eng/lhc/optics/V6.503/toolkit/list_fields_currents.madx**.</span>
+
+<span class="sd">    .. important::</span>
+<span class="sd">        Certain quantities are assumed to be defined in the ``MAD-X`` globals, such as</span>
+<span class="sd">        ``brho``, or available in the magnets definition, such as ``calib``. For this</span>
+<span class="sd">        reason, this script most likely only works for the ``(HL)LHC`` sequences where</span>
+<span class="sd">        those are defined.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.</span>
+<span class="sd">        brho (Union[str, float]): optional, an explicit definition for the magnetic</span>
+<span class="sd">            rigidity in :math:`Tm^{-1}`. If not given, it will be assumed that</span>
+<span class="sd">            a ``brho`` quantity is defined in the ``MAD-X`` globals and this one will</span>
+<span class="sd">            be used.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Creating additional TWISS table columns for magnets&#39; fields and currents&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">brho</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting &#39;brho&#39; to explicitely defined &#39;</span><span class="si">{</span><span class="n">brho</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;brho&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">brho</span>
+
+    <span class="c1"># Define strength := table(twiss, k0l) + ... + table(twiss, k5sl) +  table(twiss, hkick)  +  table(twiss, vkick);</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;strength&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot; + &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;table(twiss, </span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">_get_k_strings</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
+        <span class="o">+</span> <span class="s2">&quot; +  table(twiss, hkick)  +  table(twiss, vkick)&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># All here are given as strings to make it deferred expressions in MAD-X</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;epsilon&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-20</span>  <span class="c1"># to avoid divisions by zero</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;table(twiss, l) + table(twiss, lrad) + epsilon&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;kmaxx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;table(twiss, kmax) + epsilon&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;calibration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;table(twiss, calib) + epsilon&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;kn&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;abs(strength) / length&quot;</span>
+    <span class="c1"># madx.globals[&quot;rho&quot;] = &quot;kn / (kn + epsilon) / (kn + epsilon)&quot;</span>
+
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;field&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;kn * brho&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;percent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;field * 100 / (kmaxx + epsilon)&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;ampere&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;field / calibration&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;imax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;kmaxx / calibration&quot;</span>
+    <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s2">&quot;integrated_field&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;field * length&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_knob_value</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">knob</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Queryies the current value of a given *knob* name in the ``MAD-X`` process, and defaults</span>
+<span class="sd">    to 0 (as ``MAD-X`` does) in case that knob has not been defined in the current process.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        madx (cpymad.madx.Madx): an instanciated `~cpymad.madx.Madx` object.</span>
+<span class="sd">        knob (str): the name the knob.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The knob value if it was defined, otherwise 0.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt;&gt; _knob_value(madx, knob=&quot;underfined_for_sure&quot;)</span>
+<span class="sd">            0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">madx</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="n">knob</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>  <span class="c1"># cpymad gives a &#39;Variable not defined: var_name&#39;</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Felix Soubelet.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: 67.5%; }
+  </style>
+
+
+
+</body>
+</html>
