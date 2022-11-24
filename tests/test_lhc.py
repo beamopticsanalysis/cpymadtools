@@ -14,6 +14,7 @@ from cpymadtools.constants import (
     DEFAULT_TWISS_COLUMNS,
     LHC_ANGLE_FLAGS,
     LHC_CROSSING_ANGLE_FLAGS,
+    LHC_CROSSING_SCHEMES,
     LHC_EXPERIMENT_STATE_FLAGS,
     LHC_IP2_SPECIAL_FLAG,
     LHC_IP_OFFSET_FLAGS,
@@ -34,8 +35,7 @@ from cpymadtools.constants import (
     LHC_PARALLEL_SEPARATION_FLAGS,
 )
 from cpymadtools.lhc import (
-    _all_lhc_arcs,
-    _get_k_strings,
+    LHCSetup,
     add_markers_around_lhc_ip,
     apply_lhc_colinearity_knob,
     apply_lhc_colinearity_knob_delta,
@@ -43,8 +43,10 @@ from cpymadtools.lhc import (
     apply_lhc_rigidity_waist_shift_knob,
     carry_colinearity_knob_over,
     correct_lhc_global_coupling,
+    correct_lhc_orbit,
     deactivate_lhc_arc_sextupoles,
     do_kmodulation,
+    get_current_orbit_setup,
     get_ips_twiss,
     get_ir_twiss,
     get_lhc_bpms_list,
@@ -54,6 +56,7 @@ from cpymadtools.lhc import (
     get_sizes_at_ip,
     install_ac_dipole_as_kicker,
     install_ac_dipole_as_matrix,
+    lhc_orbit_variables,
     make_lhc_beams,
     make_lhc_thin,
     make_sixtrack_output,
@@ -64,13 +67,18 @@ from cpymadtools.lhc import (
     query_triplet_correctors_powering,
     re_cycle_sequence,
     reset_lhc_bump_flags,
+    setup_lhc_orbit,
     switch_magnetic_errors,
     vary_independent_ir_quadrupoles,
 )
+from cpymadtools.lhc._powering import _all_lhc_arcs
+from cpymadtools.matching import match_tunes_and_chromaticities
 from cpymadtools.track import track_single_particle
+from cpymadtools.utils import _get_k_strings
 
 CURRENT_DIR = pathlib.Path(__file__).parent
 INPUTS_DIR = CURRENT_DIR / "inputs"
+PROTON_DIR = INPUTS_DIR / "madx" / "PROTON"
 
 # ----- Grouping Some Constants ----- #
 
@@ -89,6 +97,46 @@ ALL_ARC_CORRECTOR_KNOBS = (
 )
 
 # ----- Tests Now ----- #
+
+
+def test_query_undefined_triplet_corrector_knobs(_bare_lhc_madx):
+    madx = _bare_lhc_madx
+    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
+    triplet_knobs = query_triplet_correctors_powering(madx)
+    assert all(knob in triplet_knobs for knob in ALL_TRIPLET_CORRECTOR_KNOBS)
+    assert all(knob_value == 0 for knob_value in triplet_knobs.values())  # as none were set
+
+
+def test_query_defined_triplet_corrector_knobs(_bare_lhc_madx):
+    madx = _bare_lhc_madx
+    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
+    fake_knob_values = {knob: random.random() for knob in ALL_TRIPLET_CORRECTOR_KNOBS}
+    with madx.batch():
+        madx.globals.update(fake_knob_values)
+    triplet_knobs = query_triplet_correctors_powering(madx)
+
+    assert all(knob in triplet_knobs for knob in ALL_TRIPLET_CORRECTOR_KNOBS)
+    assert all(knob_value != 0 for knob_value in triplet_knobs.values())
+
+
+def test_query_undefined_arc_corrector_knobs(_bare_lhc_madx):
+    madx = _bare_lhc_madx
+    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
+    arc_knobs = query_arc_correctors_powering(madx)
+    assert all(knob in arc_knobs for knob in ALL_ARC_CORRECTOR_KNOBS)
+    assert all(abs(knob_value) < 115 for knob_value in arc_knobs.values())  # set in opticsfile
+
+
+def test_query_defined_arc_corrector_knobs(_bare_lhc_madx):
+    madx = _bare_lhc_madx
+    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
+    fake_knob_values = {knob: random.random() for knob in ALL_ARC_CORRECTOR_KNOBS}
+    with madx.batch():
+        madx.globals.update(fake_knob_values)
+    arc_knobs = query_arc_correctors_powering(madx)
+
+    assert all(knob in arc_knobs for knob in ALL_ARC_CORRECTOR_KNOBS)
+    assert all(knob_value != 0 for knob_value in arc_knobs.values())
 
 
 def test_magnetic_errors_switch_no_kwargs(_non_matched_lhc_madx):
@@ -179,44 +227,100 @@ def test_misalign_lhc_triplets(_non_matched_lhc_madx):
     assert all(error_table["dpsi"] != 0)
 
 
-def test_query_undefined_triplet_corrector_knobs(_bare_lhc_madx):
+def test_lhc_orbit_variables():
+    assert lhc_orbit_variables() == (
+        [
+            "on_crab1",
+            "on_crab5",
+            "on_x1",
+            "on_sep1",
+            "on_o1",
+            "on_oh1",
+            "on_ov1",
+            "on_x2",
+            "on_sep2",
+            "on_o2",
+            "on_oe2",
+            "on_a2",
+            "on_oh2",
+            "on_ov2",
+            "on_x5",
+            "on_sep5",
+            "on_o5",
+            "on_oh5",
+            "on_ov5",
+            "on_x8",
+            "on_sep8",
+            "on_o8",
+            "on_a8",
+            "on_sep8h",
+            "on_x8v",
+            "on_oh8",
+            "on_ov8",
+            "on_alice",
+            "on_sol_alice",
+            "on_lhcb",
+            "on_sol_atlas",
+            "on_sol_cms",
+            "phi_IR1",
+            "phi_IR2",
+            "phi_IR5",
+            "phi_IR8",
+        ],
+        {"on_ssep1": "on_sep1", "on_xx1": "on_x1", "on_ssep5": "on_sep5", "on_xx5": "on_x5"},
+    )
+
+
+def test_lhc_orbit_setup_fals_on_unknown_scheme(_non_matched_lhc_madx, caplog):
+    madx = _non_matched_lhc_madx
+
+    with pytest.raises(ValueError):
+        setup_lhc_orbit(madx, scheme="unknown")
+
+    for record in caplog.records:
+        assert record.levelname == "ERROR"
+
+
+@pytest.mark.parametrize("scheme", list(LHC_CROSSING_SCHEMES.keys()))
+def test_lhc_orbit_setup(scheme, _non_matched_lhc_madx):
+    madx = _non_matched_lhc_madx
+    setup_lhc_orbit(madx, scheme=scheme)
+    variables, special = lhc_orbit_variables()
+
+    for orbit_variable in variables:
+        value = LHC_CROSSING_SCHEMES[scheme].get(orbit_variable, 0)
+        assert madx.globals[orbit_variable] == value
+
+    for special_variable, copy_from in special.items():
+        assert madx.globals[special_variable] == madx.globals[copy_from]
+
+
+def test_get_orbit_setup(_non_matched_lhc_madx):
+    madx = _non_matched_lhc_madx
+    setup_lhc_orbit(madx, scheme="flat")
+    setup = get_current_orbit_setup(madx)
+
+    assert isinstance(setup, dict)
+    assert all(orbit_var in setup.keys() for orbit_var in lhc_orbit_variables()[0])
+    assert all(special_var in setup.keys() for special_var in lhc_orbit_variables()[1])
+
+
+def test_orbit_correction(_bare_lhc_madx):
     madx = _bare_lhc_madx
-    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
-    triplet_knobs = query_triplet_correctors_powering(madx)
-    assert all(knob in triplet_knobs for knob in ALL_TRIPLET_CORRECTOR_KNOBS)
-    assert all(knob_value == 0 for knob_value in triplet_knobs.values())  # as none were set
+    re_cycle_sequence(madx, sequence="lhcb1", start="IP3")
+    _ = setup_lhc_orbit(madx, scheme="flat")
+    make_lhc_beams(madx)
+    madx.use(sequence="lhcb1")
+    match_tunes_and_chromaticities(madx, "lhc", "lhcb1", 62.31, 60.32, 2.0, 2.0)
+    assert math.isclose(madx.table.summ["xcorms"][0], 0, abs_tol=1e-10)  # rms of horizontal CO
 
+    madx.select(flag="error", pattern="MQ.13R3.B1")  # arc quad in sector 34
+    madx.command.ealign(dx="1E-3")
+    madx.twiss()
+    assert madx.table.summ["xcorms"][0] > 1e-3
 
-def test_query_defined_triplet_corrector_knobs(_bare_lhc_madx):
-    madx = _bare_lhc_madx
-    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
-    fake_knob_values = {knob: random.random() for knob in ALL_TRIPLET_CORRECTOR_KNOBS}
-    with madx.batch():
-        madx.globals.update(fake_knob_values)
-    triplet_knobs = query_triplet_correctors_powering(madx)
-
-    assert all(knob in triplet_knobs for knob in ALL_TRIPLET_CORRECTOR_KNOBS)
-    assert all(knob_value != 0 for knob_value in triplet_knobs.values())
-
-
-def test_query_undefined_arc_corrector_knobs(_bare_lhc_madx):
-    madx = _bare_lhc_madx
-    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
-    arc_knobs = query_arc_correctors_powering(madx)
-    assert all(knob in arc_knobs for knob in ALL_ARC_CORRECTOR_KNOBS)
-    assert all(abs(knob_value) < 115 for knob_value in arc_knobs.values())  # set in opticsfile
-
-
-def test_query_defined_arc_corrector_knobs(_bare_lhc_madx):
-    madx = _bare_lhc_madx
-    make_lhc_beams(madx)  # parameters don't matter, just need beams and brho defined
-    fake_knob_values = {knob: random.random() for knob in ALL_ARC_CORRECTOR_KNOBS}
-    with madx.batch():
-        madx.globals.update(fake_knob_values)
-    arc_knobs = query_arc_correctors_powering(madx)
-
-    assert all(knob in arc_knobs for knob in ALL_ARC_CORRECTOR_KNOBS)
-    assert all(knob_value != 0 for knob_value in arc_knobs.values())
+    correct_lhc_orbit(madx, sequence="lhcb1")
+    assert math.isclose(madx.table.summ["xcorms"], 0, abs_tol=1e-5)
 
 
 def test_all_lhc_arcs():
@@ -655,6 +759,27 @@ def test_get_irs_twiss(ir, _matched_lhc_madx):
     assert all([colname in ir_extra_columns_df.columns for colname in extra_columns])
 
 
+# ------------------- Requires acc-models-lhc ------------------- #
+
+# Only runs if the acc-models-lhc is accessible at root level
+@pytest.mark.skipif(not (CURRENT_DIR.parent / "acc-models-lhc").is_dir(), reason="acc-models-lhc not found")
+def test_lhc_run3_setup():
+    with LHCSetup(run=3, opticsfile="R2022a_A30cmC30cmA10mL200cm.madx") as madx:
+        for ip in [1, 2, 5, 8]:
+            for beam in [1, 2]:
+                for plane in ["x", "y"]:
+                    assert madx.globals[f"tar_on_{plane}ip{ip:d}b{beam:d}"] is not None
+
+
+def test_lhc_run2_setup(_proton_opticsfile):
+    # If works properly we have beams with lhc seq and old 30cm optics
+    # And there the optics are matched for specific tune values
+    with LHCSetup(run=2, opticsfile=_proton_opticsfile) as madx:
+        madx.command.twiss()
+        assert math.isclose(madx.table.summ.q1[0], 62.31, abs_tol=1e-6)
+        assert math.isclose(madx.table.summ.q2[0], 60.32, abs_tol=1e-6)
+
+
 # ---------------------- Private Utilities ---------------------- #
 
 
@@ -681,3 +806,8 @@ def _reference_kmodulation() -> pathlib.Path:
 @pytest.fixture()
 def _ips_twiss_path() -> pathlib.Path:
     return INPUTS_DIR / "cpymadtools" / "ips_twiss.tfs"
+
+
+@pytest.fixture()
+def _proton_opticsfile() -> str:
+    return str((PROTON_DIR / "opticsfile.22").absolute())
