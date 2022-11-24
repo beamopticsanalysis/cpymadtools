@@ -14,6 +14,33 @@ The ``cpymadtools`` package is a collection of utilities to conveniently handle 
 .. automodule:: cpymadtools.lhc
    :members:
 
+.. automodule:: cpymadtools.lhc._coupling
+   :members:
+
+.. automodule:: cpymadtools.lhc._elements
+   :members:
+
+.. automodule:: cpymadtools.lhc._errors
+   :members:
+
+.. automodule:: cpymadtools.lhc._misc
+   :members:
+
+.. automodule:: cpymadtools.lhc._powering
+   :members:
+
+.. automodule:: cpymadtools.lhc._queries
+   :members:
+
+.. automodule:: cpymadtools.lhc._routines
+   :members:
+
+.. automodule:: cpymadtools.lhc._setup
+   :members:
+
+.. automodule:: cpymadtools.lhc._twiss
+   :members:
+
 .. automodule:: cpymadtools.matching
    :members:
 
