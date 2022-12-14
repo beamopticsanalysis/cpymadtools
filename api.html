@@ -317,20 +317,20 @@ that are specific to LHC and HLLHC machines.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The functions documented below are shown as coming from private modules (<strong>_coupling</strong>,
-<strong>_misc</strong>, <strong>_setup</strong> etc). They are still all accessible at the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/api/cpymadtools.html#module-pyhdtoolkit.cpymadtools.lhc" title="(in PyhDToolkit v1.1.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyhdtoolkit.cpymadtools.lhc</span></code></a>
+<strong>_misc</strong>, <strong>_setup</strong> etc). They are still all accessible at the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/api/cpymadtools.html#module-pyhdtoolkit.cpymadtools.lhc" title="(in PyhDToolkit v1.1.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyhdtoolkit.cpymadtools.lhc</span></code></a>
 level, but any user is free to import and use them directly from the private modules if they
 wish to do so. In short, the two options below are both valid:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="dde5a699-56ca-4b36-99bf-b6f0a8573a41" name="3da1690d-7867-4870-91d2-95450435eaa2" type="radio">
-</input><label class="tabbed-label" for="dde5a699-56ca-4b36-99bf-b6f0a8573a41">
+<input checked="checked" id="06fec807-c21d-4672-b3a4-032cc683881a" name="de42f836-c472-46c3-b984-4d5d9f741144" type="radio">
+</input><label class="tabbed-label" for="06fec807-c21d-4672-b3a4-032cc683881a">
 Importing from the lhc module</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cpymadtools.lhc</span> <span class="kn">import</span> <span class="n">LHCSetup</span>
 <span class="c1"># use this now</span>
 </pre></div>
 </div>
 </div>
-<input id="c83d5d5f-3af0-45b8-a1c9-d829a386aad4" name="3da1690d-7867-4870-91d2-95450435eaa2" type="radio">
-</input><label class="tabbed-label" for="c83d5d5f-3af0-45b8-a1c9-d829a386aad4">
+<input id="7b5d569f-aa78-48f4-a1d7-db543bab60f1" name="de42f836-c472-46c3-b984-4d5d9f741144" type="radio">
+</input><label class="tabbed-label" for="7b5d569f-aa78-48f4-a1d7-db543bab60f1">
 Importing from the private module</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cpymadtools.lhc._setup</span> <span class="kn">import</span> <span class="n">LHCSetup</span>
 <span class="c1"># use this now</span>
@@ -465,7 +465,7 @@ an AC Dipole as a kicker element so that its effect can be seen on particle traj
 in tracking. It <strong>does not</strong> affect <code class="docutils literal notranslate"><span class="pre">TWISS</span></code> functions.</p>
 </div>
 <p>One can find a full example use of the function for tracking in the
-<a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_acd_tracking_spectra.html#demo-ac-dipole-tracking" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">AC Dipole Tracking</span></a> example gallery.</p>
+<a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_acd_tracking_spectra.html#demo-ac-dipole-tracking" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">AC Dipole Tracking</span></a> example gallery.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -551,7 +551,7 @@ lattice, this will misalign all slices of each magnet together. According to the
 <a class="reference external" href="https://edms5.cern.ch/cedar/plsql/codes.systems">Equipment Codes Main System</a>,  those are Q1
 to Q10 included, quads beyond are <code class="docutils literal notranslate"><span class="pre">MQ</span></code> or <code class="docutils literal notranslate"><span class="pre">MQT</span></code> which are considered arc elements.</p>
 <p>One can find a full example use of the function for tracking in the
-<a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_ir_errors.html#demo-ir-errors" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">LHC IR Errors</span></a> example gallery.</p>
+<a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_ir_errors.html#demo-ir-errors" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">LHC IR Errors</span></a> example gallery.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This implementation is only valid for LHC IP IRs, which are 1, 2, 5 and 8. Other IRs have
@@ -1472,8 +1472,8 @@ and will properly set the <code class="docutils literal notranslate"><span class
 </div>
 <p>Executes the <code class="docutils literal notranslate"><span class="pre">MAKETHIN</span></code> command for the LHC sequence as previously done in <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> macros.
 This will use the <code class="docutils literal notranslate"><span class="pre">teapot</span></code> style and will enforce <code class="docutils literal notranslate"><span class="pre">makedipedge</span></code>.</p>
-<p>One can find an exemple use of this function in the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_acd_tracking_spectra.html#demo-ac-dipole-tracking" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">AC Dipole Tracking</span></a>
-and <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_track_spectra.html#demo-free-tracking" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">Free Tracking</span></a> example galleries.</p>
+<p>One can find an exemple use of this function in the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_acd_tracking_spectra.html#demo-ac-dipole-tracking" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">AC Dipole Tracking</span></a>
+and <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_track_spectra.html#demo-free-tracking" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">Free Tracking</span></a> example galleries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1603,8 +1603,8 @@ Any other keyword argument is transmitted to the <a class="reference external" h
 <p><span class="versionmodified added">New in version 0.15.0.</span></p>
 </div>
 <p>Re-cycles the provided <em>sequence</em> from a different starting point, given as <em>start</em>.</p>
-<p>One can find an exemple use of this function in the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_acd_tracking_spectra.html#demo-ac-dipole-tracking" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">AC Dipole Tracking</span></a>
-and <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_track_spectra.html#demo-free-tracking" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">Free Tracking</span></a> example galleries.</p>
+<p>One can find an exemple use of this function in the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_acd_tracking_spectra.html#demo-ac-dipole-tracking" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">AC Dipole Tracking</span></a>
+and <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_track_spectra.html#demo-free-tracking" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">Free Tracking</span></a> example galleries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1725,33 +1725,36 @@ header dictionary.</p>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">New in version 0.17.0.</span></p>
 </div>
-<p>Provided with an active <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object, will run relevant commands to match chromaticities
-to the desired target values.</p>
+<p>Provided with an active <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object, will run relevant commands
+to match chromaticities to the desired target values.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is a wrapper around the <a class="reference internal" href="#cpymadtools.matching.match_tunes_and_chromaticities" title="cpymadtools.matching.match_tunes_and_chromaticities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_tunes_and_chromaticities</span></code></a> function. Refer to its documentation
-for usage details.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The matching is always performed with the <code class="docutils literal notranslate"><span class="pre">CHROM</span></code> option on.</p>
+<p>This is a wrapper around the <a class="reference internal" href="#cpymadtools.matching.match_tunes_and_chromaticities" title="cpymadtools.matching.match_tunes_and_chromaticities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_tunes_and_chromaticities</span></code></a> function.
+Refer to its documentation for usage details.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>madx</strong> (<a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">cpymad.madx.Madx</span></code></a>) -- an instanciated <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object.</p></li>
-<li><p><strong>accelerator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optional[str]</span></code>) -- name of the accelerator, used to determmine knobs if <em>variables</em> is not given.
-Automatic determination will only work for <code class="xref py py-obj docutils literal notranslate"><span class="pre">LHC</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">HLLHC</span></code>.</p></li>
-<li><p><strong>sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) -- name of the sequence you want to perform the matching for.</p></li>
-<li><p><strong>q1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal tune to match to.</p></li>
-<li><p><strong>q2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical tune to match to.</p></li>
-<li><p><strong>varied_knobs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence[str]</span></code>) -- the variables names to <code class="docutils literal notranslate"><span class="pre">VARY</span></code> in the <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> <code class="docutils literal notranslate"><span class="pre">MATCH</span></code> routine.</p></li>
-<li><p><strong>telescopic_squeeze</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- <code class="docutils literal notranslate"><span class="pre">LHC</span></code> specific. If set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">(HL)LHC</span></code> knobs for Telescopic
-Squeeze configuration. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> since <code class="xref py py-obj docutils literal notranslate"><span class="pre">v0.9.0</span></code>.</p></li>
-<li><p><strong>run3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- if set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="xref py py-obj docutils literal notranslate"><span class="pre">LHC</span></code> Run 3 <code class="xref py py-obj docutils literal notranslate"><span class="pre">*_op</span></code> knobs. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</p></li>
-<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- step size to use when varying knobs. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">1E-7</span></code>.</p></li>
-<li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) -- max number of varying calls to perform. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
-<li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- tolerance for successfull matching. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">1E-21</span></code>.</p></li>
+<li><p><strong>accelerator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optional[str]</span></code>) -- name of the accelerator, used to determmine knobs if
+<em>variables</em> is not given. Automatic determination will only work for <code class="docutils literal notranslate"><span class="pre">LHC</span></code> and
+<code class="docutils literal notranslate"><span class="pre">HLLHC</span></code>. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case the knobs must be provided explicitly
+through <code class="docutils literal notranslate"><span class="pre">varied_knobs</span></code>.</p></li>
+<li><p><strong>sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) -- name of the sequence you want to perform the matching for. Defaults to
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case the currently active sequence will be used for the matching.</p></li>
+<li><p><strong>dq1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal chromaticity to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case
+it will not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>dq2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical chromaticity to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case it
+will not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>varied_knobs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence[str]</span></code>) -- the variables names to <code class="docutils literal notranslate"><span class="pre">VARY</span></code> in the <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> <code class="docutils literal notranslate"><span class="pre">MATCH</span></code>
+routine. An example input could be <code class="docutils literal notranslate"><span class="pre">[&quot;kqf&quot;,</span> <span class="pre">&quot;ksd&quot;,</span> <span class="pre">&quot;kqf&quot;,</span> <span class="pre">&quot;kqd&quot;]</span></code> as they are common
+names used for quadrupole and sextupole strengths (focusing / defocusing) in most examples.</p></li>
+<li><p><strong>telescopic_squeeze</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- <code class="docutils literal notranslate"><span class="pre">LHC</span></code> specific. If set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">(HL)LHC</span></code> knobs for
+Telescopic Squeeze configuration. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> since <code class="xref py py-obj docutils literal notranslate"><span class="pre">v0.9.0</span></code>.</p></li>
+<li><p><strong>run3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- if set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">LHC</span></code> Run 3 <code class="xref py py-obj docutils literal notranslate"><span class="pre">*_op</span></code> knobs. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</p></li>
+<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- step size to use when varying knobs.</p></li>
+<li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) -- max number of varying calls to perform. Defaults to 100.</p></li>
+<li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- tolerance for successfull matching. Defaults to <span class="math notranslate nohighlight">\(10^{-21}\)</span>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1762,6 +1765,17 @@ Squeeze configuration. Defaults to <a class="reference external" href="https://d
 <span class="gp">... </span>    <span class="n">madx</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="kc">None</span><span class="p">,</span>              <span class="c1"># this is not LHC or HLLHC</span>
 <span class="gp">... </span>    <span class="n">sequence</span><span class="o">=</span><span class="s2">&quot;CAS3&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dq1_target</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dq2_target</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">varied_knobs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ksf&quot;</span><span class="p">,</span> <span class="s2">&quot;ksd&quot;</span><span class="p">],</span>  <span class="c1"># only chroma knobs</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that since the <code class="docutils literal notranslate"><span class="pre">accelerator</span></code> and <code class="docutils literal notranslate"><span class="pre">sequence</span></code> arguments default to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>,
+they can be omitted. In this case the sequence currently in use will be used for
+the matching, and <code class="docutils literal notranslate"><span class="pre">varied_knobs</span></code> must be provided.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matching</span><span class="o">.</span><span class="n">match_tunes_and_chromaticities</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">madx</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">dq1_target</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">dq2_target</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">varied_knobs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ksf&quot;</span><span class="p">,</span> <span class="s2">&quot;ksd&quot;</span><span class="p">],</span>  <span class="c1"># only chroma knobs</span>
@@ -1787,33 +1801,36 @@ Squeeze configuration. Defaults to <a class="reference external" href="https://d
 <dd><div class="versionadded">
 <p><span class="versionmodified added">New in version 0.17.0.</span></p>
 </div>
-<p>Provided with an active <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object, will run relevant commands to match tunes to
-the desired target values.</p>
+<p>Provided with an active <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object, will run relevant commands
+to match tunes to the desired target values.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is a wrapper around the <a class="reference internal" href="#cpymadtools.matching.match_tunes_and_chromaticities" title="cpymadtools.matching.match_tunes_and_chromaticities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_tunes_and_chromaticities</span></code></a> function. Refer to its documentation
-for usage details.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The matching is always performed with the <code class="docutils literal notranslate"><span class="pre">CHROM</span></code> option on.</p>
+<p>This is a wrapper around the <a class="reference internal" href="#cpymadtools.matching.match_tunes_and_chromaticities" title="cpymadtools.matching.match_tunes_and_chromaticities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_tunes_and_chromaticities</span></code></a> function. Refer
+to its documentation for usage details.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>madx</strong> (<a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">cpymad.madx.Madx</span></code></a>) -- an instanciated <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object.</p></li>
-<li><p><strong>accelerator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optional[str]</span></code>) -- name of the accelerator, used to determmine knobs if <em>variables</em> is not given.
-Automatic determination will only work for <code class="xref py py-obj docutils literal notranslate"><span class="pre">LHC</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">HLLHC</span></code>.</p></li>
-<li><p><strong>sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) -- name of the sequence you want to perform the matching for.</p></li>
-<li><p><strong>q1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal tune to match to.</p></li>
-<li><p><strong>q2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical tune to match to.</p></li>
-<li><p><strong>varied_knobs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence[str]</span></code>) -- the variables names to <code class="docutils literal notranslate"><span class="pre">VARY</span></code> in the <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> <code class="docutils literal notranslate"><span class="pre">MATCH</span></code> routine.</p></li>
-<li><p><strong>telescopic_squeeze</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- <code class="docutils literal notranslate"><span class="pre">LHC</span></code> specific. If set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">(HL)LHC</span></code> knobs for Telescopic
-Squeeze configuration. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> since <code class="xref py py-obj docutils literal notranslate"><span class="pre">v0.9.0</span></code>.</p></li>
-<li><p><strong>run3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- if set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="xref py py-obj docutils literal notranslate"><span class="pre">LHC</span></code> Run 3 <code class="xref py py-obj docutils literal notranslate"><span class="pre">*_op</span></code> knobs. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</p></li>
-<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- step size to use when varying knobs. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">1E-7</span></code>.</p></li>
-<li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) -- max number of varying calls to perform. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
-<li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- tolerance for successfull matching. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">1E-21</span></code>.</p></li>
+<li><p><strong>accelerator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optional[str]</span></code>) -- name of the accelerator, used to determmine knobs if
+<em>variables</em> is not given. Automatic determination will only work for <code class="docutils literal notranslate"><span class="pre">LHC</span></code> and
+<code class="docutils literal notranslate"><span class="pre">HLLHC</span></code>. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case the knobs must be provided explicitly
+through <code class="docutils literal notranslate"><span class="pre">varied_knobs</span></code>.</p></li>
+<li><p><strong>sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) -- name of the sequence you want to perform the matching for. Defaults to
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case the currently active sequence will be used for the matching.</p></li>
+<li><p><strong>q1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal tune to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case it will
+not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>q2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical tune to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case it will
+not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>varied_knobs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence[str]</span></code>) -- the variables names to <code class="docutils literal notranslate"><span class="pre">VARY</span></code> in the <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> <code class="docutils literal notranslate"><span class="pre">MATCH</span></code>
+routine. An example input could be <code class="docutils literal notranslate"><span class="pre">[&quot;kqf&quot;,</span> <span class="pre">&quot;ksd&quot;,</span> <span class="pre">&quot;kqf&quot;,</span> <span class="pre">&quot;kqd&quot;]</span></code> as they are common
+names used for quadrupole and sextupole strengths (focusing / defocusing) in most examples.</p></li>
+<li><p><strong>telescopic_squeeze</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- <code class="docutils literal notranslate"><span class="pre">LHC</span></code> specific. If set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">(HL)LHC</span></code> knobs for
+Telescopic Squeeze configuration. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> since <code class="xref py py-obj docutils literal notranslate"><span class="pre">v0.9.0</span></code>.</p></li>
+<li><p><strong>run3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- if set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">LHC</span></code> Run 3 <code class="xref py py-obj docutils literal notranslate"><span class="pre">*_op</span></code> knobs. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</p></li>
+<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- step size to use when varying knobs.</p></li>
+<li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) -- max number of varying calls to perform. Defaults to 100.</p></li>
+<li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- tolerance for successfull matching. Defaults to <span class="math notranslate nohighlight">\(10^{-21}\)</span>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1824,6 +1841,17 @@ Squeeze configuration. Defaults to <a class="reference external" href="https://d
 <span class="gp">... </span>    <span class="n">madx</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="kc">None</span><span class="p">,</span>              <span class="c1"># this is not LHC or HLLHC</span>
 <span class="gp">... </span>    <span class="n">sequence</span><span class="o">=</span><span class="s2">&quot;CAS3&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">q1_target</span><span class="o">=</span><span class="mf">6.335</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">q2_target</span><span class="o">=</span><span class="mf">6.29</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">varied_knobs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kqf&quot;</span><span class="p">,</span> <span class="s2">&quot;kqd&quot;</span><span class="p">],</span>  <span class="c1"># only tune knobs</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that since the <code class="docutils literal notranslate"><span class="pre">accelerator</span></code> and <code class="docutils literal notranslate"><span class="pre">sequence</span></code> arguments default to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>,
+they can be omitted. In this case the sequence currently in use will be used for
+the matching, and <code class="docutils literal notranslate"><span class="pre">varied_knobs</span></code> must be provided.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matching</span><span class="o">.</span><span class="n">match_tunes_and_chromaticities</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">madx</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">q1_target</span><span class="o">=</span><span class="mf">6.335</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">q2_target</span><span class="o">=</span><span class="mf">6.29</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">varied_knobs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kqf&quot;</span><span class="p">,</span> <span class="s2">&quot;kqd&quot;</span><span class="p">],</span>  <span class="c1"># only tune knobs</span>
@@ -1854,53 +1882,57 @@ and/or chromaticities. As target values are given, the function expects knob nam
 which are then used and varied by <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> to match the targets. This is a convenient wrapper around
 the <code class="docutils literal notranslate"><span class="pre">MATCH</span></code> command. For usage details, see the
 <a class="reference external" href="http://madx.web.cern.ch/madx/releases/last-rel/madxuguide.pdf">MAD-X manual</a>.</p>
-<p>One can find example use of this function in the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_lattice.html#demo-accelerator-lattice" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">lattice plotting</span></a>,
-<a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_lhc_rigid_waist_shift.html#demo-rigid-waist-shift" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">rigid waist shift</span></a> or <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_phase_space.html#demo-phase-space" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">phase space</span></a> example
+<p>One can find example use of this function in the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_lattice.html#demo-accelerator-lattice" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">lattice plotting</span></a>,
+<a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_lhc_rigid_waist_shift.html#demo-rigid-waist-shift" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">rigid waist shift</span></a> or <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_phase_space.html#demo-phase-space" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">phase space</span></a> example
 galleries.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>If target tune values only are provided, then tune matching is performed with the provided knobs.
-If target chromaticity values only are provided, then chromaticity matching is performed with the
-provided knobs. If targets for both types are provided, then both are matched in a single call with
-the provided knobs.</p>
+<p>If target tune values only are provided, then tune matching is performed with the
+provided knobs. If target chromaticity values only are provided, then chromaticity
+matching is performed with the provided knobs. If targets for both types are provided,
+then both are matched in a single call with the provided knobs.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the user wishes to perform different matching calls for each, then it is recommended to call this
-function as many times as necessary, with the appropriate targets.</p>
-<p>For instance, in some cases and machines some prefer to do a tune matching followed by a chromaticity matching,
-then followed by a combined matching. In this case the function should be called three times, once with tune
-targets and knobs, another time with chromaticity targets and knobs, then a final time with all of the above.
-For this, simple wrappers are provided: the <a class="reference internal" href="#cpymadtools.matching.match_tunes" title="cpymadtools.matching.match_tunes"><code class="xref py py-func docutils literal notranslate"><span class="pre">match_tunes()</span></code></a> and <a class="reference internal" href="#cpymadtools.matching.match_chromaticities" title="cpymadtools.matching.match_chromaticities"><code class="xref py py-func docutils literal notranslate"><span class="pre">match_chromaticities()</span></code></a> functions.</p>
+<p>If the user wishes to perform different matching calls for each, then it is recommended
+to call this function as many times as necessary, with the appropriate targets.</p>
+<p>For instance, in some cases and machines some prefer to do a tune matching followed by
+a chromaticity matching, then followed by a combined matching. In this case the function
+should be called three times, once with tune targets and knobs, another time with
+chromaticity targets and knobs, then a final time with all of the above. For this, simple
+wrappers are provided: the <a class="reference internal" href="#cpymadtools.matching.match_tunes" title="cpymadtools.matching.match_tunes"><code class="xref py py-func docutils literal notranslate"><span class="pre">match_tunes()</span></code></a> and <a class="reference internal" href="#cpymadtools.matching.match_chromaticities" title="cpymadtools.matching.match_chromaticities"><code class="xref py py-func docutils literal notranslate"><span class="pre">match_chromaticities()</span></code></a> functions.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>When acting of either the <code class="docutils literal notranslate"><span class="pre">LHC</span></code> or <code class="docutils literal notranslate"><span class="pre">HLLHC</span></code> machines, the accelerator name can be provided and the vary
-knobs will be automatically set accordingly to the provided targets. Note that only the relevant knobs are
-set, so if tune targets only are provided, then tune knobs only will be used, and not chromaticity knobs.
-If explicit knobs are provided, these will always be used. On other machines the knobs should be provided
-explicitly, always.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The matching is always performed with the <code class="docutils literal notranslate"><span class="pre">CHROM</span></code> option on.</p>
+<p>When acting of either the <code class="docutils literal notranslate"><span class="pre">LHC</span></code> or <code class="docutils literal notranslate"><span class="pre">HLLHC</span></code> machines, the accelerator name can be
+provided and the vary knobs will be automatically set accordingly to the provided targets.
+Note that only the relevant knobs are set, so if tune targets only are provided, then tune
+knobs only will be used, and not chromaticity knobs. If explicit knobs are provided, these
+will always be used. On other machines the knobs should be provided explicitly, always.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>madx</strong> (<a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">cpymad.madx.Madx</span></code></a>) -- an instanciated <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> object.</p></li>
-<li><p><strong>accelerator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optional[str]</span></code>) -- name of the accelerator, used to determmine knobs if <em>variables</em> is not given.
-Automatic determination will only work for <code class="docutils literal notranslate"><span class="pre">LHC</span></code> and <code class="docutils literal notranslate"><span class="pre">HLLHC</span></code>.</p></li>
-<li><p><strong>sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) -- name of the sequence you want to perform the matching for.</p></li>
-<li><p><strong>q1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal tune to match to.</p></li>
-<li><p><strong>q2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical tune to match to.</p></li>
-<li><p><strong>dq1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal chromaticity to match to.</p></li>
-<li><p><strong>dq2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical chromaticity to match to.</p></li>
-<li><p><strong>varied_knobs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence[str]</span></code>) -- the variables names to <code class="docutils literal notranslate"><span class="pre">VARY</span></code> in the <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> <code class="docutils literal notranslate"><span class="pre">MATCH</span></code> routine. An input
-could be <code class="docutils literal notranslate"><span class="pre">[&quot;kqf&quot;,</span> <span class="pre">&quot;ksd&quot;,</span> <span class="pre">&quot;kqf&quot;,</span> <span class="pre">&quot;kqd&quot;]</span></code> as they are common names used for quadrupole and sextupole
-strengths (focusing / defocusing) in most examples.</p></li>
-<li><p><strong>telescopic_squeeze</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- <code class="docutils literal notranslate"><span class="pre">LHC</span></code> specific. If set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">(HL)LHC</span></code> knobs for Telescopic
-Squeeze configuration. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> since <code class="xref py py-obj docutils literal notranslate"><span class="pre">v0.9.0</span></code>.</p></li>
+<li><p><strong>accelerator</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optional[str]</span></code>) -- name of the accelerator, used to determmine knobs if
+<em>variables</em> is not given. Automatic determination will only work for <code class="docutils literal notranslate"><span class="pre">LHC</span></code> and
+<code class="docutils literal notranslate"><span class="pre">HLLHC</span></code>. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case the knobs must be provided explicitly
+through <code class="docutils literal notranslate"><span class="pre">varied_knobs</span></code>.</p></li>
+<li><p><strong>sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) -- name of the sequence you want to perform the matching for. Defaults to
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case the currently active sequence will be used for the matching.</p></li>
+<li><p><strong>q1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal tune to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case it will
+not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>q2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical tune to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case it will
+not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>dq1_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- horizontal chromaticity to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case
+it will not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>dq2_target</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- vertical chromaticity to match to. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, in which case it
+will not be a target and will be excluded from the matching.</p></li>
+<li><p><strong>varied_knobs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence[str]</span></code>) -- the variables names to <code class="docutils literal notranslate"><span class="pre">VARY</span></code> in the <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> <code class="docutils literal notranslate"><span class="pre">MATCH</span></code>
+routine. An example input could be <code class="docutils literal notranslate"><span class="pre">[&quot;kqf&quot;,</span> <span class="pre">&quot;ksd&quot;,</span> <span class="pre">&quot;kqf&quot;,</span> <span class="pre">&quot;kqd&quot;]</span></code> as they are common
+names used for quadrupole and sextupole strengths (focusing / defocusing) in most examples.</p></li>
+<li><p><strong>telescopic_squeeze</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- <code class="docutils literal notranslate"><span class="pre">LHC</span></code> specific. If set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">(HL)LHC</span></code> knobs for
+Telescopic Squeeze configuration. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> since <code class="xref py py-obj docutils literal notranslate"><span class="pre">v0.9.0</span></code>.</p></li>
 <li><p><strong>run3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) -- if set to <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, uses the <code class="docutils literal notranslate"><span class="pre">LHC</span></code> Run 3 <code class="xref py py-obj docutils literal notranslate"><span class="pre">*_op</span></code> knobs. Defaults to <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>.</p></li>
 <li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) -- step size to use when varying knobs.</p></li>
 <li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) -- max number of varying calls to perform. Defaults to 100.</p></li>
@@ -1923,7 +1955,20 @@ Squeeze configuration. Defaults to <a class="reference external" href="https://d
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Matching the LHC lattice:</p>
+<p>Note that since the <code class="docutils literal notranslate"><span class="pre">accelerator</span></code> and <code class="docutils literal notranslate"><span class="pre">sequence</span></code> arguments default to <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>,
+they can be omitted. In this case the sequence currently in use will be used for
+the matching, and <code class="docutils literal notranslate"><span class="pre">varied_knobs</span></code> must be provided.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matching</span><span class="o">.</span><span class="n">match_tunes_and_chromaticities</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">madx</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">q1_target</span><span class="o">=</span><span class="mf">6.335</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">q2_target</span><span class="o">=</span><span class="mf">6.29</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dq1_target</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dq2_target</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">varied_knobs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kqf&quot;</span><span class="p">,</span> <span class="s2">&quot;kqd&quot;</span><span class="p">,</span> <span class="s2">&quot;ksf&quot;</span><span class="p">,</span> <span class="s2">&quot;ksd&quot;</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Matching the <code class="docutils literal notranslate"><span class="pre">lhcb1</span></code> sequence of the <code class="docutils literal notranslate"><span class="pre">LHC</span></code> lattice:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matching</span><span class="o">.</span><span class="n">match_tunes_and_chromaticities</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">madx</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="s2">&quot;lhc&quot;</span><span class="p">,</span>                    <span class="c1"># will find the knobs automatically</span>
@@ -2157,7 +2202,7 @@ are already set for <code class="xref py py-obj docutils literal notranslate"><s
 <p><span class="versionmodified added">New in version 0.8.0.</span></p>
 </div>
 <p>Tracks a single particle for <em>nturns</em>, based on its initial coordinates. For an example of the use of this
-function, have a look at the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_phase_space.html#demo-phase-space" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">phase space</span></a> or <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_track_spectra.html#demo-free-tracking" title="(in PyhDToolkit v1.1.0)"><span class="xref std std-ref">tracking</span></a>
+function, have a look at the <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_phase_space.html#demo-phase-space" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">phase space</span></a> or <a class="reference external" href="https://fsoubelet.github.io/PyhDToolkit/gallery/demo_track_spectra.html#demo-free-tracking" title="(in PyhDToolkit v1.1.1)"><span class="xref std std-ref">tracking</span></a>
 example galleries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
