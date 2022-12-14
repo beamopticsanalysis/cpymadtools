@@ -16,6 +16,6 @@ Link to [documentation].
 
 ## License
 
-Copyright &copy; 2022 Felix Soubelet. [MIT License](LICENSE)
+Copyright &copy; 2019 Felix Soubelet. [Apache 2.0](LICENSE)
 
 [documentation]: https://fsoubelet.github.io/cpymadtools/
