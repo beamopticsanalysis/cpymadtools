@@ -44,12 +44,12 @@ classifiers = [
 ]
 
 dependencies = [
+  "cpymad >= 1.9",
   "numpy >= 1.21",
   "pandas >= 1.4",
   "matplotlib >=3.3",
   "scipy >= 1.6",
   "tfs-pandas >= 3.2",
-  "cpymad >= 1.9",
   "optics-functions >= 0.1",
 ]
 
@@ -79,10 +79,10 @@ docs = [
 ]
 
 [project.urls]
-homepage = "https://github.com/fsoubelet/cpymadtools"
-repository = "https://github.com/fsoubelet/cpymadtools"
-documentation = "https://fsoubelet.github.io/cpymadtools"
-changelog = "https://fsoubelet.github.io/cpymadtools/release.html"
+homepage = "https://github.com/beamopticsanalysis/cpymadtools"
+repository = "https://github.com/beamopticsanalysis/cpymadtools"
+documentation = "https://beamopticsanalysis.github.io/cpymadtools/"
+changelog = "https://beamopticsanalysis.github.io/cpymadtools/release.html"
 
 # ----- Testing Configuration ----- #
 
@@ -95,9 +95,6 @@ source = ["cpymadtools/"]
 
 [tool.coverage.report]
 ignore_errors = true
-omit = [
-  "cpymadtools/setup.py",
-]
 precision = 2
 
 # ----- Dev Tools Configuration ----- #
