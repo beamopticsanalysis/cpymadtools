@@ -8,18 +8,17 @@
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-variables.4b15212bc2faf4da239d738a7cf8e545.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx-dropdown.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.min.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -32,14 +31,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> cpymadtools
+
+          
+          
+          <a href="../../../index.html">
+            
           </a>
               <div class="version">
                 1.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -54,13 +57,70 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#useful-constants">Useful Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#betatron-coupling-utilities">Betatron Coupling Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.coupling.get_closest_tune_approach"><code class="docutils literal notranslate"><span class="pre">get_closest_tune_approach()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.coupling.get_cminus_from_coupling_rdts"><code class="docutils literal notranslate"><span class="pre">get_cminus_from_coupling_rdts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.coupling.get_coupling_rdts"><code class="docutils literal notranslate"><span class="pre">get_coupling_rdts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.coupling.match_no_coupling_through_ripkens"><code class="docutils literal notranslate"><span class="pre">match_no_coupling_through_ripkens()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#lhc-specific-utilities">LHC-Specific Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._coupling.correct_lhc_global_coupling"><code class="docutils literal notranslate"><span class="pre">correct_lhc_global_coupling()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._coupling.get_lhc_bpms_twiss_and_rdts"><code class="docutils literal notranslate"><span class="pre">get_lhc_bpms_twiss_and_rdts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._elements.add_markers_around_lhc_ip"><code class="docutils literal notranslate"><span class="pre">add_markers_around_lhc_ip()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._elements.install_ac_dipole_as_kicker"><code class="docutils literal notranslate"><span class="pre">install_ac_dipole_as_kicker()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._elements.install_ac_dipole_as_matrix"><code class="docutils literal notranslate"><span class="pre">install_ac_dipole_as_matrix()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._errors.misalign_lhc_ir_quadrupoles"><code class="docutils literal notranslate"><span class="pre">misalign_lhc_ir_quadrupoles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._errors.misalign_lhc_triplets"><code class="docutils literal notranslate"><span class="pre">misalign_lhc_triplets()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._misc.get_lhc_bpms_list"><code class="docutils literal notranslate"><span class="pre">get_lhc_bpms_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._misc.get_lhc_tune_and_chroma_knobs"><code class="docutils literal notranslate"><span class="pre">get_lhc_tune_and_chroma_knobs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._misc.get_sizes_at_ip"><code class="docutils literal notranslate"><span class="pre">get_sizes_at_ip()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._misc.make_sixtrack_output"><code class="docutils literal notranslate"><span class="pre">make_sixtrack_output()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._misc.reset_lhc_bump_flags"><code class="docutils literal notranslate"><span class="pre">reset_lhc_bump_flags()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.apply_lhc_colinearity_knob"><code class="docutils literal notranslate"><span class="pre">apply_lhc_colinearity_knob()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.apply_lhc_colinearity_knob_delta"><code class="docutils literal notranslate"><span class="pre">apply_lhc_colinearity_knob_delta()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.apply_lhc_coupling_knob"><code class="docutils literal notranslate"><span class="pre">apply_lhc_coupling_knob()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.apply_lhc_rigidity_waist_shift_knob"><code class="docutils literal notranslate"><span class="pre">apply_lhc_rigidity_waist_shift_knob()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.carry_colinearity_knob_over"><code class="docutils literal notranslate"><span class="pre">carry_colinearity_knob_over()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.deactivate_lhc_arc_sextupoles"><code class="docutils literal notranslate"><span class="pre">deactivate_lhc_arc_sextupoles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.power_landau_octupoles"><code class="docutils literal notranslate"><span class="pre">power_landau_octupoles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.switch_magnetic_errors"><code class="docutils literal notranslate"><span class="pre">switch_magnetic_errors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._powering.vary_independent_ir_quadrupoles"><code class="docutils literal notranslate"><span class="pre">vary_independent_ir_quadrupoles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._queries.get_current_orbit_setup"><code class="docutils literal notranslate"><span class="pre">get_current_orbit_setup()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._queries.get_magnets_powering"><code class="docutils literal notranslate"><span class="pre">get_magnets_powering()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._queries.query_arc_correctors_powering"><code class="docutils literal notranslate"><span class="pre">query_arc_correctors_powering()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._queries.query_triplet_correctors_powering"><code class="docutils literal notranslate"><span class="pre">query_triplet_correctors_powering()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._routines.correct_lhc_global_coupling"><code class="docutils literal notranslate"><span class="pre">correct_lhc_global_coupling()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._routines.correct_lhc_orbit"><code class="docutils literal notranslate"><span class="pre">correct_lhc_orbit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._routines.do_kmodulation"><code class="docutils literal notranslate"><span class="pre">do_kmodulation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.LHCSetup"><code class="docutils literal notranslate"><span class="pre">LHCSetup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.lhc_orbit_variables"><code class="docutils literal notranslate"><span class="pre">lhc_orbit_variables()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.make_lhc_beams"><code class="docutils literal notranslate"><span class="pre">make_lhc_beams()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.make_lhc_thin"><code class="docutils literal notranslate"><span class="pre">make_lhc_thin()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.prepare_lhc_run2"><code class="docutils literal notranslate"><span class="pre">prepare_lhc_run2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.prepare_lhc_run3"><code class="docutils literal notranslate"><span class="pre">prepare_lhc_run3()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.re_cycle_sequence"><code class="docutils literal notranslate"><span class="pre">re_cycle_sequence()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._setup.setup_lhc_orbit"><code class="docutils literal notranslate"><span class="pre">setup_lhc_orbit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._twiss.get_ips_twiss"><code class="docutils literal notranslate"><span class="pre">get_ips_twiss()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.lhc._twiss.get_ir_twiss"><code class="docutils literal notranslate"><span class="pre">get_ir_twiss()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#matching-routines">Matching Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.matching.match_chromaticities"><code class="docutils literal notranslate"><span class="pre">match_chromaticities()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.matching.match_tunes"><code class="docutils literal notranslate"><span class="pre">match_tunes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.matching.match_tunes_and_chromaticities"><code class="docutils literal notranslate"><span class="pre">match_tunes_and_chromaticities()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#ptc-routines">PTC Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.ptc.get_amplitude_detuning"><code class="docutils literal notranslate"><span class="pre">get_amplitude_detuning()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.ptc.get_rdts"><code class="docutils literal notranslate"><span class="pre">get_rdts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.ptc.ptc_track_particle"><code class="docutils literal notranslate"><span class="pre">ptc_track_particle()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.ptc.ptc_twiss"><code class="docutils literal notranslate"><span class="pre">ptc_twiss()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#tracking-routines">Tracking Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.track.track_single_particle"><code class="docutils literal notranslate"><span class="pre">track_single_particle()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#tune-utilities">Tune Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.tune.get_footprint_lines"><code class="docutils literal notranslate"><span class="pre">get_footprint_lines()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.tune.get_footprint_patches"><code class="docutils literal notranslate"><span class="pre">get_footprint_patches()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.tune.make_footprint_table"><code class="docutils literal notranslate"><span class="pre">make_footprint_table()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#twiss-routines">TWISS Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.twiss.get_pattern_twiss"><code class="docutils literal notranslate"><span class="pre">get_pattern_twiss()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.twiss.get_twiss_tfs"><code class="docutils literal notranslate"><span class="pre">get_twiss_tfs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api.html#miscellaneous-utilities">Miscellaneous Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.utils.export_madx_table"><code class="docutils literal notranslate"><span class="pre">export_madx_table()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#cpymadtools.utils.get_table_tfs"><code class="docutils literal notranslate"><span class="pre">get_table_tfs()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a><ul>
@@ -105,7 +165,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">cpymadtools.lhc._misc</li>
       <li class="wy-breadcrumbs-aside">
@@ -146,7 +206,7 @@
 
 
 <div class="viewcode-block" id="make_sixtrack_output"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._misc.make_sixtrack_output">[docs]</a><span class="k">def</span> <span class="nf">make_sixtrack_output</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">energy</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. versionadded:: 0.15.0</span>
 
 <span class="sd">    Prepare output for a ``SixTrack`` run. Initial implementation credits go to</span>
@@ -174,7 +234,7 @@
 
 
 <div class="viewcode-block" id="reset_lhc_bump_flags"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._misc.reset_lhc_bump_flags">[docs]</a><span class="k">def</span> <span class="nf">reset_lhc_bump_flags</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. versionadded:: 0.15.0</span>
 
 <span class="sd">    Resets all LHC IP bump flags to 0.</span>
@@ -203,7 +263,7 @@
 <div class="viewcode-block" id="get_lhc_tune_and_chroma_knobs"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._misc.get_lhc_tune_and_chroma_knobs">[docs]</a><span class="k">def</span> <span class="nf">get_lhc_tune_and_chroma_knobs</span><span class="p">(</span>
     <span class="n">accelerator</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">beam</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">telescopic_squeeze</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">run3</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. versionadded:: 0.16.0</span>
 
 <span class="sd">    Gets names of knobs needed to match tunes and chromaticities as a tuple of strings,</span>
@@ -266,7 +326,7 @@
 
 
 <div class="viewcode-block" id="get_lhc_bpms_list"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._misc.get_lhc_bpms_list">[docs]</a><span class="k">def</span> <span class="nf">get_lhc_bpms_list</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. versionadded:: 0.16.0</span>
 
 <span class="sd">    Returns the list of monitoring BPMs for the current LHC sequence in use.</span>
@@ -293,7 +353,7 @@
 
 
 <div class="viewcode-block" id="get_sizes_at_ip"><a class="viewcode-back" href="../../../api.html#cpymadtools.lhc._misc.get_sizes_at_ip">[docs]</a><span class="k">def</span> <span class="nf">get_sizes_at_ip</span><span class="p">(</span><span class="n">madx</span><span class="p">:</span> <span class="n">Madx</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">geom_emit_x</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">geom_emit_y</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. versionadded:: 1.0.0</span>
 
 <span class="sd">    Get the Lebedev beam sizes (horizontal and vertical) at the provided LHC *ip*.</span>
@@ -331,7 +391,7 @@
 <span class="k">def</span> <span class="nf">_lebedev_beam_size</span><span class="p">(</span>
     <span class="n">beta1_</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">beta2_</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">geom_emit_x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">geom_emit_y</span><span class="p">:</span> <span class="nb">float</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. versionadded:: 0.8.2</span>
 
 <span class="sd">    Calculate beam size according to the Lebedev-Bogacz formula, based on the Ripken-Mais Twiss</span>
@@ -370,7 +430,7 @@
 
 
 <span class="k">def</span> <span class="nf">_add_beam_size_to_df</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">tfs</span><span class="o">.</span><span class="n">TfsDataFrame</span><span class="p">,</span> <span class="n">geom_emit_x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">geom_emit_y</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tfs</span><span class="o">.</span><span class="n">TfsDataFrame</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Adds columns with the horizontal and vertical Lebedev beam sizes to a dataframe</span>
 <span class="sd">    that already contains Ripken Twiss parameters. Assumes that the geometrical emittance</span>
 <span class="sd">    is identical for the horizontal and vertical plane, which is something I usually have.</span>
