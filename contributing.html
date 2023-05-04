@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contributing &mdash; cpymadtools 1.1.0 documentation</title>
@@ -9,17 +9,18 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sphinx-dropdown.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.min.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.4b15212bc2faf4da239d738a7cf8e545.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -60,70 +61,13 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api.html#useful-constants">Useful Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#betatron-coupling-utilities">Betatron Coupling Utilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.coupling.get_closest_tune_approach"><code class="docutils literal notranslate"><span class="pre">get_closest_tune_approach()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.coupling.get_cminus_from_coupling_rdts"><code class="docutils literal notranslate"><span class="pre">get_cminus_from_coupling_rdts()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.coupling.get_coupling_rdts"><code class="docutils literal notranslate"><span class="pre">get_coupling_rdts()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.coupling.match_no_coupling_through_ripkens"><code class="docutils literal notranslate"><span class="pre">match_no_coupling_through_ripkens()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#lhc-specific-utilities">LHC-Specific Utilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._coupling.correct_lhc_global_coupling"><code class="docutils literal notranslate"><span class="pre">correct_lhc_global_coupling()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._coupling.get_lhc_bpms_twiss_and_rdts"><code class="docutils literal notranslate"><span class="pre">get_lhc_bpms_twiss_and_rdts()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._elements.add_markers_around_lhc_ip"><code class="docutils literal notranslate"><span class="pre">add_markers_around_lhc_ip()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._elements.install_ac_dipole_as_kicker"><code class="docutils literal notranslate"><span class="pre">install_ac_dipole_as_kicker()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._elements.install_ac_dipole_as_matrix"><code class="docutils literal notranslate"><span class="pre">install_ac_dipole_as_matrix()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._errors.misalign_lhc_ir_quadrupoles"><code class="docutils literal notranslate"><span class="pre">misalign_lhc_ir_quadrupoles()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._errors.misalign_lhc_triplets"><code class="docutils literal notranslate"><span class="pre">misalign_lhc_triplets()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._misc.get_lhc_bpms_list"><code class="docutils literal notranslate"><span class="pre">get_lhc_bpms_list()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._misc.get_lhc_tune_and_chroma_knobs"><code class="docutils literal notranslate"><span class="pre">get_lhc_tune_and_chroma_knobs()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._misc.get_sizes_at_ip"><code class="docutils literal notranslate"><span class="pre">get_sizes_at_ip()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._misc.make_sixtrack_output"><code class="docutils literal notranslate"><span class="pre">make_sixtrack_output()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._misc.reset_lhc_bump_flags"><code class="docutils literal notranslate"><span class="pre">reset_lhc_bump_flags()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.apply_lhc_colinearity_knob"><code class="docutils literal notranslate"><span class="pre">apply_lhc_colinearity_knob()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.apply_lhc_colinearity_knob_delta"><code class="docutils literal notranslate"><span class="pre">apply_lhc_colinearity_knob_delta()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.apply_lhc_coupling_knob"><code class="docutils literal notranslate"><span class="pre">apply_lhc_coupling_knob()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.apply_lhc_rigidity_waist_shift_knob"><code class="docutils literal notranslate"><span class="pre">apply_lhc_rigidity_waist_shift_knob()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.carry_colinearity_knob_over"><code class="docutils literal notranslate"><span class="pre">carry_colinearity_knob_over()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.deactivate_lhc_arc_sextupoles"><code class="docutils literal notranslate"><span class="pre">deactivate_lhc_arc_sextupoles()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.power_landau_octupoles"><code class="docutils literal notranslate"><span class="pre">power_landau_octupoles()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.switch_magnetic_errors"><code class="docutils literal notranslate"><span class="pre">switch_magnetic_errors()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._powering.vary_independent_ir_quadrupoles"><code class="docutils literal notranslate"><span class="pre">vary_independent_ir_quadrupoles()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._queries.get_current_orbit_setup"><code class="docutils literal notranslate"><span class="pre">get_current_orbit_setup()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._queries.get_magnets_powering"><code class="docutils literal notranslate"><span class="pre">get_magnets_powering()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._queries.query_arc_correctors_powering"><code class="docutils literal notranslate"><span class="pre">query_arc_correctors_powering()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._queries.query_triplet_correctors_powering"><code class="docutils literal notranslate"><span class="pre">query_triplet_correctors_powering()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._routines.correct_lhc_global_coupling"><code class="docutils literal notranslate"><span class="pre">correct_lhc_global_coupling()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._routines.correct_lhc_orbit"><code class="docutils literal notranslate"><span class="pre">correct_lhc_orbit()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._routines.do_kmodulation"><code class="docutils literal notranslate"><span class="pre">do_kmodulation()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.LHCSetup"><code class="docutils literal notranslate"><span class="pre">LHCSetup</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.lhc_orbit_variables"><code class="docutils literal notranslate"><span class="pre">lhc_orbit_variables()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.make_lhc_beams"><code class="docutils literal notranslate"><span class="pre">make_lhc_beams()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.make_lhc_thin"><code class="docutils literal notranslate"><span class="pre">make_lhc_thin()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.prepare_lhc_run2"><code class="docutils literal notranslate"><span class="pre">prepare_lhc_run2()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.prepare_lhc_run3"><code class="docutils literal notranslate"><span class="pre">prepare_lhc_run3()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.re_cycle_sequence"><code class="docutils literal notranslate"><span class="pre">re_cycle_sequence()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._setup.setup_lhc_orbit"><code class="docutils literal notranslate"><span class="pre">setup_lhc_orbit()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._twiss.get_ips_twiss"><code class="docutils literal notranslate"><span class="pre">get_ips_twiss()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.lhc._twiss.get_ir_twiss"><code class="docutils literal notranslate"><span class="pre">get_ir_twiss()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#matching-routines">Matching Routines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.matching.match_chromaticities"><code class="docutils literal notranslate"><span class="pre">match_chromaticities()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.matching.match_tunes"><code class="docutils literal notranslate"><span class="pre">match_tunes()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.matching.match_tunes_and_chromaticities"><code class="docutils literal notranslate"><span class="pre">match_tunes_and_chromaticities()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#ptc-routines">PTC Routines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.ptc.get_amplitude_detuning"><code class="docutils literal notranslate"><span class="pre">get_amplitude_detuning()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.ptc.get_rdts"><code class="docutils literal notranslate"><span class="pre">get_rdts()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.ptc.ptc_track_particle"><code class="docutils literal notranslate"><span class="pre">ptc_track_particle()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.ptc.ptc_twiss"><code class="docutils literal notranslate"><span class="pre">ptc_twiss()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#tracking-routines">Tracking Routines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.track.track_single_particle"><code class="docutils literal notranslate"><span class="pre">track_single_particle()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#tune-utilities">Tune Utilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.tune.get_footprint_lines"><code class="docutils literal notranslate"><span class="pre">get_footprint_lines()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.tune.get_footprint_patches"><code class="docutils literal notranslate"><span class="pre">get_footprint_patches()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.tune.make_footprint_table"><code class="docutils literal notranslate"><span class="pre">make_footprint_table()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#twiss-routines">TWISS Routines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.twiss.get_pattern_twiss"><code class="docutils literal notranslate"><span class="pre">get_pattern_twiss()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.twiss.get_twiss_tfs"><code class="docutils literal notranslate"><span class="pre">get_twiss_tfs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#miscellaneous-utilities">Miscellaneous Utilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.utils.export_madx_table"><code class="docutils literal notranslate"><span class="pre">export_madx_table()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#cpymadtools.utils.get_table_tfs"><code class="docutils literal notranslate"><span class="pre">get_table_tfs()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
@@ -181,15 +125,15 @@
            <div itemprop="articleBody">
              
   <section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline"></a></h1>
 <p>Contributions in the form of bug reports, bug fixes, documentation, enhancement proposals and more are welcome.
 This page provides information on how best to contribute.</p>
 <section id="asking-for-help">
-<h2>Asking for Help<a class="headerlink" href="#asking-for-help" title="Permalink to this heading"></a></h2>
+<h2>Asking for Help<a class="headerlink" href="#asking-for-help" title="Permalink to this headline"></a></h2>
 <p>If you have a question about how to use the package feel free to raise a <a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Question</span></code> label.</p>
 </section>
 <section id="bug-reports">
-<h2>Bug Reports<a class="headerlink" href="#bug-reports" title="Permalink to this heading"></a></h2>
+<h2>Bug Reports<a class="headerlink" href="#bug-reports" title="Permalink to this headline"></a></h2>
 <p>If you find a bug, please raise a <a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Bug</span></code> label.
 Please include the following items in a bug report:</p>
 <ol class="arabic">
@@ -221,14 +165,14 @@ A convenience function is provided in the <code class="xref py py-obj docutils l
 </ol>
 </section>
 <section id="enhancement-proposals">
-<h2>Enhancement Proposals<a class="headerlink" href="#enhancement-proposals" title="Permalink to this heading"></a></h2>
+<h2>Enhancement Proposals<a class="headerlink" href="#enhancement-proposals" title="Permalink to this headline"></a></h2>
 <p>If you have an idea about a new feature or some other improvement, please raise a <a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/issues/new">GitHub issue</a> with the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Request</span></code> label first to discuss.
 Ideas and suggestions for how to improve the package are welcome.</p>
 </section>
 <section id="contributing-code-and-or-documentation">
-<h2>Contributing Code and/or Documentation<a class="headerlink" href="#contributing-code-and-or-documentation" title="Permalink to this heading"></a></h2>
+<h2>Contributing Code and/or Documentation<a class="headerlink" href="#contributing-code-and-or-documentation" title="Permalink to this headline"></a></h2>
 <section id="forking-the-repository">
-<h3>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this heading"></a></h3>
+<h3>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this headline"></a></h3>
 <p>The cpymadtools source code is hosted on GitHub at the following location:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/beamopticsanalysis/cpymadtools/">https://github.com/beamopticsanalysis/cpymadtools/</a></p></li>
@@ -242,15 +186,47 @@ $ git remote add upstream git@github.com:beamopticsanalysis/cpymadtools.git
 </div>
 </section>
 <section id="creating-a-development-environment">
-<h3>Creating a Development Environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this heading"></a></h3>
+<h3>Creating a Development Environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">cpymadtools</span></code> uses <a class="reference external" href="https://hatch.pypa.io/latest/">Hatch</a> as a package development tool, which handles the creation &amp; management of a development environment, building, publishing, recipes and more.
 However, as the <strong>pyproject.toml</strong> file is fully <strong>PEP</strong>-compliant, using <code class="docutils literal notranslate"><span class="pre">Hatch</span></code> is <strong>not mandatory</strong> for development.</p>
 <p>Here is how to set yourself up:</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="tabbed-set docutils">
+<input checked="checked" id="3679652c-6d1d-49a5-8f67-5a82c4369efe" name="01494bc4-c683-49ff-9012-353e0598767a" type="radio">
+</input><label class="tabbed-label" for="3679652c-6d1d-49a5-8f67-5a82c4369efe">
+Using Hatch</label><div class="tabbed-content docutils">
+<p>Assuming you have <code class="docutils literal notranslate"><span class="pre">hatch</span></code> in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, once in the root of the repository setting yourself up is as easy as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch env create
+</pre></div>
+</div>
+<p>With this, <code class="docutils literal notranslate"><span class="pre">hatch</span></code> will create a new virtual environment and install in there the package as well as its runtime and development dependencies.
+The installation is similar to the editable mode from <code class="docutils literal notranslate"><span class="pre">pip</span></code>.
+You can enter the environment by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch shell
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Start your commands with <strong>hatch run</strong> to have <code class="docutils literal notranslate"><span class="pre">hatch</span></code> run them in the virtual environment, if you don’t wish to activate it.
+For instance, getting the Python version can be as simple as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch run python --version
+</pre></div>
+</div>
+</div>
+</div>
+<input id="45a63742-d95d-4c1d-86cc-7b4b2396043c" name="01494bc4-c683-49ff-9012-353e0598767a" type="radio">
+</input><label class="tabbed-label" for="45a63742-d95d-4c1d-86cc-7b4b2396043c">
+Without Hatch</label><div class="tabbed-content docutils">
+<p>If you want to skip using <code class="docutils literal notranslate"><span class="pre">Hatch</span></code>, you can create a virtual environment yourself and then <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> the package in editable mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install -e &quot;.[test,dev,docs]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
 </section>
 <section id="creating-a-branch">
-<h3>Creating a Branch<a class="headerlink" href="#creating-a-branch" title="Permalink to this heading"></a></h3>
+<h3>Creating a Branch<a class="headerlink" href="#creating-a-branch" title="Permalink to this headline"></a></h3>
 <p>Before you do any new work or submit a pull request, please open an issue on GitHub to report the bug or propose the feature you’d like to add.</p>
 <p>It’s best to synchronize your fork with the upstream repository, then create a new, separate branch for each piece of work you want to do.
 E.g.:</p>
@@ -278,17 +254,35 @@ $ git merge upstream/master
 <p>Again, any conflicts need to be resolved <em>before</em> submitting a pull request.</p>
 </section>
 <section id="running-the-test-suite">
-<h3>Running the Test Suite<a class="headerlink" href="#running-the-test-suite" title="Permalink to this heading"></a></h3>
+<h3>Running the Test Suite<a class="headerlink" href="#running-the-test-suite" title="Permalink to this headline"></a></h3>
 <p>The repository includes a suite of unit tests you should run to check your changes.
 One can run the test suite in the following way:</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="tabbed-set docutils">
+<input checked="checked" id="fb467edf-3b9e-4816-af59-12f65b021a20" name="c5218a2b-d9e7-46b3-82fb-2b2437a0dedb" type="radio">
+</input><label class="tabbed-label" for="fb467edf-3b9e-4816-af59-12f65b021a20">
+Using Hatch</label><div class="tabbed-content docutils">
+<p>The simplest way to run the test suite using <code class="docutils literal notranslate"><span class="pre">hatch</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hatch run python -m pytest
+</pre></div>
+</div>
+</div>
+<input id="ad9a9c9d-3c32-4c96-9a50-d097354b1334" name="c5218a2b-d9e7-46b3-82fb-2b2437a0dedb" type="radio">
+</input><label class="tabbed-label" for="ad9a9c9d-3c32-4c96-9a50-d097354b1334">
+Without Hatch</label><div class="tabbed-content docutils">
+<p>In your virtual environment, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pytest
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
 <p>All tests are automatically run via <strong>GitHub Actions</strong> for every push onto the main repository, and in every pull request.
 The test suite <strong>must</strong> pass before code can be accepted.
 Test coverage is also collected automatically via the <a class="reference external" href="https://about.codecov.io/">Codecov</a> service, and the target for total coverage is usually 95%, though exceptions can be made.</p>
 </section>
 <section id="code-standards">
-<h3>Code Standards<a class="headerlink" href="#code-standards" title="Permalink to this heading"></a></h3>
+<h3>Code Standards<a class="headerlink" href="#code-standards" title="Permalink to this headline"></a></h3>
 <p>All code must conform to the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> standard.
 Lines up to 120 characters are allowed, although please try to keep below wherever possible.
 Formatting is enforced using the <code class="docutils literal notranslate"><span class="pre">black</span></code> tool, and imports sorting with <code class="docutils literal notranslate"><span class="pre">isort</span></code>.</p>
@@ -297,7 +291,7 @@ As much as possible, types are enforced with the help of the <code class="docuti
 Additionally, code quality is kept in check with the <code class="docutils literal notranslate"><span class="pre">pylint</span></code> tool.</p>
 </section>
 <section id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h3>
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h3>
 <p>Docstrings for user-facing classes and functions should follow the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#s3.8.1-comments-in-doc-strings">Google</a>
 format, including sections for Parameters and Examples.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cpymadtools</span></code> uses <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> to build its documentation, which is hosted on GitHub Pages.
