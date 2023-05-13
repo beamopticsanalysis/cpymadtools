@@ -9,8 +9,8 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="_static/panels-variables.4b15212bc2faf4da239d738a7cf8e545.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -161,11 +161,11 @@ The different sub-packages can be imported separately, depending on your needs:<
 <span class="prompt2"><span class="kn">import</span> <span class="nn">cpymadtools.tune</span></span>
 <span class="prompt2"><span class="kn">import</span> <span class="nn">cpymadtools.twiss</span></span>
 <span class="prompt2"><span class="kn">import</span> <span class="nn">cpymadtools.utils</span></span>
-</pre></div></div><p>These sub-packages provide an ensemble of functionality to perform operations with and from <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a>
+</pre></div></div><p>These sub-packages provide an ensemble of functionality to perform operations with and from <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a>
 objects; and conveniently setup, run and analyze <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> simulations and their results.</p>
 <p>All the public apis in <code class="xref py py-obj docutils literal notranslate"><span class="pre">cpymadtools</span></code> work in the same fashion: call them with as first argument your
-<a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> instance, and then any <code class="xref py py-obj docutils literal notranslate"><span class="pre">args</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">kwargs</span></code> relevant to the functionality at hand.
-Let’s say one has initiated their <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> simulation through <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> as follows:</p>
+<a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> instance, and then any <code class="xref py py-obj docutils literal notranslate"><span class="pre">args</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">kwargs</span></code> relevant to the functionality at hand.
+Let’s say one has initiated their <code class="docutils literal notranslate"><span class="pre">MAD-X</span></code> simulation through <a class="reference external" href="https://hibtc.github.io/cpymad/automod/cpymad.madx.Madx.html#cpymad.madx.Madx" title="(in cpymad v1.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Madx</span></code></a> as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2"><span class="kn">from</span> <span class="nn">cpymad.madx</span> <span class="kn">import</span> <span class="n">Madx</span></span>
 <span class="prompt2"><span class="n">madx</span> <span class="o">=</span> <span class="n">Madx</span><span class="p">()</span></span>
 </pre></div></div><p>Then using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">cpymadtools</span></code> apis goes as:</p>
