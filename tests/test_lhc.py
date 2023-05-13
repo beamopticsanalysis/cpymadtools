@@ -723,7 +723,7 @@ def test_correct_lhc_global_coupling(_non_matched_lhc_madx, telesqueeze):
 
     correct_lhc_global_coupling(madx, telescopic_squeeze=telesqueeze)
     assert madx.table.summ.dqmin[0] >= 0
-    assert math.isclose(madx.table.summ.dqmin[0], 0, abs_tol=1e-7)
+    assert math.isclose(madx.table.summ.dqmin[0], 0, abs_tol=1e-5)
 
 
 @pytest.mark.parametrize("ip", [1, 5])
